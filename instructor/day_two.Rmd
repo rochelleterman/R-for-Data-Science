@@ -41,8 +41,8 @@ R expects dataframes to be rectangular
 ```{r}
 state <- state.x77
 rm(state.x77)
-state <- as.data.frame(state) 
-head(state)     
+state <- as.data.frame(state)
+head(state)
 ```
 
 ## Introduction
@@ -55,8 +55,8 @@ yesterday we saw how to create dataframes in R
 my.data <- data.frame(n = c(1, 2, 3),
                       c=c('one', 'two', 'three'),
                       b=c(TRUE, TRUE, FALSE),
-                      d=c(as.Date("2015-07-27"), 
-                          as.Date("2015-07-27")+7, 
+                      d=c(as.Date("2015-07-27"),
+                          as.Date("2015-07-27")+7,
                           as.Date("2015-07-27")-7),
                       really.long.and.complicated.variable.name=999)
 ```
@@ -71,14 +71,14 @@ in practice, you will only rarely create dataframes by hand, because creating ta
 
 ## Readibility
 
-we've broken up the previous command across multiple lines to make it easier to read 
+we've broken up the previous command across multiple lines to make it easier to read
 this is a stylistic choice, and one that should be encouraged: however, it won't be obvious to most of the students that it is necessary to either highlight the whole command and run, or hit run for every line, starting from the first one, in order
 
 often, students will just run the second line, and be confused when nothing runs correctly in the console anymore - the way to get out of this is by hitting `ESC`
 
 # Reading dataframes from file
 
-## why read data from text files? 
+## why read data from text files?
 
 they are human-readable and highly interoperable
 
@@ -95,6 +95,16 @@ read.csv("data/mydata.csv")
 ```
 
 note that we are only reading the files by doing this
+
+## R lets you read in part of a table
+
+you'll sometimes find that you want to work with a smaller part of a dataset - maybe because the data is too large to fit into memory, or maybe because you want to test out some code on a small piece of the data so it runs faster
+
+```{r}
+read.csv("data/mydata.csv", nrows=2)
+```
+
+note that `nrows` is **not** equal to the number of lines in the file, because it does not include the file header
 
 ## R also has its own kind of data file
 
@@ -157,7 +167,7 @@ str(dirty)
 
 ```{r}
 tail(dirty)
-dirty <- dirty[1:5,-6]  
+dirty <- dirty[1:5,-6]
 dim(dirty)
 ```
 
@@ -170,7 +180,7 @@ names(dirty)
 names(dirty) <- c("time", "height", "dept", "enroll", "birth.order")
 ```
 
-## it's common for hand-coded data to have a signifier for subject-missingness 
+## it's common for hand-coded data to have a signifier for subject-missingness
 
 (to help differentiate it from your hand-coder forgetting to do something)
 
@@ -400,7 +410,7 @@ str(my.data[!(my.data$character %in% good.things), ])
 str(my.data$numeric)
 ```
 
-## most tidying can be done with two R packages 
+## most tidying can be done with two R packages
 
 (plus a wrapper around the base string functions)
 
@@ -482,7 +492,7 @@ you can do an *inner* join using merge
 merge(data.1, data.2, by = 'id')
 ```
 
-that's no good - we lost half of our people! 
+that's no good - we lost half of our people!
 
 inner joins are mostly used when you **only** want records that appear in both tables
 
@@ -620,18 +630,18 @@ religion$reltrad[religion$q16 == " Agnostic (not sure if there is a God) "] <- "
 religion$reltrad <- str_trim(religion$reltrad)
 religion$reltrad <- str_replace_all(religion$reltrad, " \\(.*?\\)", "")
 
-religion$income <- c("Less than $10,000" = "<$10k", 
-  "10 to under $20,000" = "$10-20k", 
-  "20 to under $30,000" = "$20-30k", 
-  "30 to under $40,000" = "$30-40k", 
-  "40 to under $50,000" = "$40-50k", 
+religion$income <- c("Less than $10,000" = "<$10k",
+  "10 to under $20,000" = "$10-20k",
+  "20 to under $30,000" = "$20-30k",
+  "30 to under $40,000" = "$30-40k",
+  "40 to under $50,000" = "$40-50k",
   "50 to under $75,000" = "$50-75k",
-  "75 to under $100,000" = "$75-100k", 
-  "100 to under $150,000" = "$100-150k", 
-  "$150,000 or more" = ">150k", 
+  "75 to under $100,000" = "$75-100k",
+  "100 to under $150,000" = "$100-150k",
+  "$150,000 or more" = ">150k",
   "Don't know/Refused (VOL)" = "Don't know/refused")[religion$income]
 
-religion$income <- factor(religion$income, levels = c("<$10k", "$10-20k", "$20-30k", "$30-40k", "$40-50k", "$50-75k", 
+religion$income <- factor(religion$income, levels = c("<$10k", "$10-20k", "$20-30k", "$30-40k", "$40-50k", "$50-75k",
   "$75-100k", "$100-150k", ">150k", "Don't know/refused"))
 ```
 
@@ -647,5 +657,4 @@ names(religion)[1] <- "religion"
 ## Materials taken from:
 
 [Chris Krogslund](https://github.com/ckrogs/r_useful_dlab)
-
-[Hadley Wickham](www.jstatsoft.org/v59/i10/paper)
+[Hadley Wickham](http://www.jstatsoft.org/v59/i10/paper)
