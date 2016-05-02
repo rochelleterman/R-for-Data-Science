@@ -5,18 +5,73 @@ author: Dillon Niederhut
 
 This repository contains the instructor materials for the D-Lab's R intensive.
 
-## Contents:
+## If you are a student:
 
-1. data/ -- datafiles necessary for training
-2. instructor/ -- instructor materials
+You can download the contents of this repository with:
 
-## How to contribute:
+```
+git clone https://github.com/dlab-berkeley/r-for-data-science.git
+```
 
-If you are an instructor, we encourage you to improve the teaching materials maintained by the D-Lab. We especially encourage you to respond to open issues in this repository. To do so:
+or, by clicking the "Download Zip" button and then extracting the `.zip` file.
 
-1. [Learn how to write in R markdown](http://rmarkdown.rstudio.com/)
-2. [Fork this repository](https://help.github.com/articles/fork-a-repo/)
-3. Modify your version of these materials
-4. Commit and push your changes
-5. [Submit a pull request](https://help.github.com/articles/creating-a-pull-request/) with a concise but informative comment about what you have changed
-    - if relevant, include in your comment that it `closes #{issue number}`
+The instructor of this workshop series will lead you through the activities for each day.
+
+## If you are a D-Lab instructor
+
+You'll see accumulated teaching notes and examples for each day's topics in the instructor folder. For your convenience, these are available as .Rmd, commented .R files, PDF documents, and HTML slides.
+
+For information on contributing to this repository, see `CONTRIBUTING.md`
+
+## If you are a D-Lab facilitator
+
+The standard Drupal workshop descriptions and facetweet postings for this workshop series are in `PUBLICITY.md`
+
+## Description
+
+* `data/` : data necessary for interactive coding examples
+* `examples/` 
+    * `save_console_output.R` : R code for saving console output to pdf
+* `instructor/` : teaching notes
+* `scripts/`
+    * `feedback_cleaner.R` : used to clean data for use in Day 3
+    * `regenrate_files.R` : for regenerating `.R` and `.pdf` files from `.Rmd`
+
+## Topics:
+
+This workshop series covers:
+
+1. Interacting with R
+2. Datatypes
+3. Data structures
+4. Reading data
+5. Sanitizing data
+6. Missing data
+7. Reshaping data
+8. Summary statistics
+9. Plotting
+10. Linear models
+11. Non-parametric models
+12. Functions
+13. Loops
+14. Parallelization
+15. Packages
+
+## Libraries
+
+This workshop uses the following packages:
+
+1. Amelia
+2. devtools
+3. dplyr
+4. foreign
+5. ggplot2
+6. parallelMap
+7. RCurl
+8. reshape2
+9. roxygen2
+10. stringr
+11. XML
+
+---
+_D-Lab == Data Intensive Social Science, For All!_
