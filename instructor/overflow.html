@@ -54,7 +54,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="author">
 Dillon Niederhut
   </p>
-  <p class="date">02 May, 2016</p>
+  <p class="date">24 May, 2016</p>
 </div>
 <div class="slide section level1">
 
@@ -70,87 +70,87 @@ Dillon Niederhut
 <span class="kw">library</span>(XML)</code></pre></div>
 <h2 id="you-can-use-this-to-access-remote-data">you can use this to access remote data</h2>
 <p>you may just want to read text lines from a webpage</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">RJ &lt;-<span class="st"> </span><span class="kw">readLines</span>(<span class="st">&quot;http://shakespeare.mit.edu/romeo_juliet/full.html&quot;</span>)  
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">RJ &lt;-<span class="st"> </span><span class="kw">readLines</span>(<span class="st">&quot;http://shakespeare.mit.edu/romeo_juliet/full.html&quot;</span>)
 RJ[<span class="dv">1</span>:<span class="dv">25</span>]</code></pre></div>
-<pre><code>##  [1] &quot;&lt;!DOCTYPE HTML PUBLIC \&quot;-//W3C//DTD HTML 4.0 Transitional//EN\&quot;&quot;              
-##  [2] &quot; \&quot;http://www.w3.org/TR/REC-html40/loose.dtd\&quot;&gt;&quot;                              
-##  [3] &quot; &lt;html&gt;&quot;                                                                      
-##  [4] &quot; &lt;head&gt;&quot;                                                                      
-##  [5] &quot; &lt;title&gt;Romeo and Juliet: Entire Play&quot;                                        
-##  [6] &quot; &lt;/title&gt;&quot;                                                                    
+<pre><code>##  [1] &quot;&lt;!DOCTYPE HTML PUBLIC \&quot;-//W3C//DTD HTML 4.0 Transitional//EN\&quot;&quot;
+##  [2] &quot; \&quot;http://www.w3.org/TR/REC-html40/loose.dtd\&quot;&gt;&quot;
+##  [3] &quot; &lt;html&gt;&quot;
+##  [4] &quot; &lt;head&gt;&quot;
+##  [5] &quot; &lt;title&gt;Romeo and Juliet: Entire Play&quot;
+##  [6] &quot; &lt;/title&gt;&quot;
 ##  [7] &quot; &lt;meta http-equiv=\&quot;Content-Type\&quot; content=\&quot;text/html; charset=iso-8859-1\&quot;&gt;&quot;
-##  [8] &quot; &lt;LINK rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; media=\&quot;screen\&quot;&quot;                 
-##  [9] &quot;       href=\&quot;/shake.css\&quot;&gt;&quot;                                                  
-## [10] &quot; &lt;/HEAD&gt;&quot;                                                                     
-## [11] &quot; &lt;body bgcolor=\&quot;#ffffff\&quot; text=\&quot;#000000\&quot;&gt;&quot;                                 
-## [12] &quot;&quot;                                                                             
-## [13] &quot;&lt;table width=\&quot;100%\&quot; bgcolor=\&quot;#CCF6F6\&quot;&gt;&quot;                                   
-## [14] &quot;&lt;tr&gt;&lt;td class=\&quot;play\&quot; align=\&quot;center\&quot;&gt;Romeo and Juliet&quot;                     
-## [15] &quot;&lt;tr&gt;&lt;td class=\&quot;nav\&quot; align=\&quot;center\&quot;&gt;&quot;                                      
-## [16] &quot;      &lt;a href=\&quot;/Shakespeare\&quot;&gt;Shakespeare homepage&lt;/A&gt; &quot;                     
-## [17] &quot;    | &lt;A href=\&quot;/romeo_juliet/\&quot;&gt;Romeo and Juliet&lt;/A&gt; &quot;                       
-## [18] &quot;    | Entire play&quot;                                                            
-## [19] &quot;&lt;/table&gt;&quot;                                                                     
-## [20] &quot;&quot;                                                                             
-## [21] &quot;&lt;H3&gt;ACT I&lt;/h3&gt;&quot;                                                               
-## [22] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;                                                            
-## [23] &quot;&lt;blockquote&gt;&quot;                                                                 
-## [24] &quot;&lt;A NAME=1.0.1&gt;Two households, both alike in dignity,&lt;/A&gt;&lt;br&gt;&quot;                 
+##  [8] &quot; &lt;LINK rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot; media=\&quot;screen\&quot;&quot;
+##  [9] &quot;       href=\&quot;/shake.css\&quot;&gt;&quot;
+## [10] &quot; &lt;/HEAD&gt;&quot;
+## [11] &quot; &lt;body bgcolor=\&quot;#ffffff\&quot; text=\&quot;#000000\&quot;&gt;&quot;
+## [12] &quot;&quot;
+## [13] &quot;&lt;table width=\&quot;100%\&quot; bgcolor=\&quot;#CCF6F6\&quot;&gt;&quot;
+## [14] &quot;&lt;tr&gt;&lt;td class=\&quot;play\&quot; align=\&quot;center\&quot;&gt;Romeo and Juliet&quot;
+## [15] &quot;&lt;tr&gt;&lt;td class=\&quot;nav\&quot; align=\&quot;center\&quot;&gt;&quot;
+## [16] &quot;      &lt;a href=\&quot;/Shakespeare\&quot;&gt;Shakespeare homepage&lt;/A&gt; &quot;
+## [17] &quot;    | &lt;A href=\&quot;/romeo_juliet/\&quot;&gt;Romeo and Juliet&lt;/A&gt; &quot;
+## [18] &quot;    | Entire play&quot;
+## [19] &quot;&lt;/table&gt;&quot;
+## [20] &quot;&quot;
+## [21] &quot;&lt;H3&gt;ACT I&lt;/h3&gt;&quot;
+## [22] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;
+## [23] &quot;&lt;blockquote&gt;&quot;
+## [24] &quot;&lt;A NAME=1.0.1&gt;Two households, both alike in dignity,&lt;/A&gt;&lt;br&gt;&quot;
 ## [25] &quot;&lt;A NAME=1.0.2&gt;In fair Verona, where we lay our scene,&lt;/A&gt;&lt;br&gt;&quot;</code></pre>
 <p>and use the kinds of string manipulation we learned yesterday to retrieve the first lines of an act or a scene</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">RJ[<span class="kw">grep</span>(<span class="st">&quot;&lt;h3&gt;&quot;</span>, RJ, <span class="dt">perl=</span>T)]</code></pre></div>
-<pre><code>##  [1] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;                                                        
-##  [2] &quot;&lt;h3&gt;SCENE I. Verona. A public place.&lt;/h3&gt;&quot;                                
-##  [3] &quot;&lt;h3&gt;SCENE II. A street.&lt;/h3&gt;&quot;                                             
-##  [4] &quot;&lt;h3&gt;SCENE III. A room in Capulet's house.&lt;/h3&gt;&quot;                           
-##  [5] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;                                             
-##  [6] &quot;&lt;h3&gt;SCENE V. A hall in Capulet's house.&lt;/h3&gt;&quot;                             
-##  [7] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;                                                        
-##  [8] &quot;&lt;h3&gt;SCENE I. A lane by the wall of Capulet's orchard.&lt;/h3&gt;&quot;               
-##  [9] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;                                    
-## [10] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;                               
-## [11] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;                                             
-## [12] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;                                     
-## [13] &quot;&lt;h3&gt;SCENE VI. Friar Laurence's cell.&lt;/h3&gt;&quot;                                
-## [14] &quot;&lt;h3&gt;SCENE I. A public place.&lt;/h3&gt;&quot;                                        
-## [15] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;                                    
-## [16] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;                               
-## [17] &quot;&lt;h3&gt;SCENE IV. A room in Capulet's house.&lt;/h3&gt;&quot;                            
-## [18] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;                                     
-## [19] &quot;&lt;h3&gt;SCENE I. Friar Laurence's cell.&lt;/h3&gt;&quot;                                 
-## [20] &quot;&lt;h3&gt;SCENE II. Hall in Capulet's house.&lt;/h3&gt;&quot;                              
-## [21] &quot;&lt;h3&gt;SCENE III. Juliet's chamber.&lt;/h3&gt;&quot;                                    
-## [22] &quot;&lt;h3&gt;SCENE IV. Hall in Capulet's house.&lt;/h3&gt;&quot;                              
-## [23] &quot;&lt;h3&gt;SCENE V. Juliet's chamber.&lt;/h3&gt;&quot;                                      
-## [24] &quot;&lt;h3&gt;SCENE I. Mantua. A street.&lt;/h3&gt;&quot;                                      
-## [25] &quot;&lt;h3&gt;SCENE II. Friar Laurence's cell.&lt;/h3&gt;&quot;                                
+<pre><code>##  [1] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;
+##  [2] &quot;&lt;h3&gt;SCENE I. Verona. A public place.&lt;/h3&gt;&quot;
+##  [3] &quot;&lt;h3&gt;SCENE II. A street.&lt;/h3&gt;&quot;
+##  [4] &quot;&lt;h3&gt;SCENE III. A room in Capulet's house.&lt;/h3&gt;&quot;
+##  [5] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;
+##  [6] &quot;&lt;h3&gt;SCENE V. A hall in Capulet's house.&lt;/h3&gt;&quot;
+##  [7] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;
+##  [8] &quot;&lt;h3&gt;SCENE I. A lane by the wall of Capulet's orchard.&lt;/h3&gt;&quot;
+##  [9] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;
+## [10] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [11] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;
+## [12] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;
+## [13] &quot;&lt;h3&gt;SCENE VI. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [14] &quot;&lt;h3&gt;SCENE I. A public place.&lt;/h3&gt;&quot;
+## [15] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;
+## [16] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [17] &quot;&lt;h3&gt;SCENE IV. A room in Capulet's house.&lt;/h3&gt;&quot;
+## [18] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;
+## [19] &quot;&lt;h3&gt;SCENE I. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [20] &quot;&lt;h3&gt;SCENE II. Hall in Capulet's house.&lt;/h3&gt;&quot;
+## [21] &quot;&lt;h3&gt;SCENE III. Juliet's chamber.&lt;/h3&gt;&quot;
+## [22] &quot;&lt;h3&gt;SCENE IV. Hall in Capulet's house.&lt;/h3&gt;&quot;
+## [23] &quot;&lt;h3&gt;SCENE V. Juliet's chamber.&lt;/h3&gt;&quot;
+## [24] &quot;&lt;h3&gt;SCENE I. Mantua. A street.&lt;/h3&gt;&quot;
+## [25] &quot;&lt;h3&gt;SCENE II. Friar Laurence's cell.&lt;/h3&gt;&quot;
 ## [26] &quot;&lt;h3&gt;SCENE III. A churchyard; in it a tomb belonging to the Capulets.&lt;/h3&gt;&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">RJ[<span class="kw">grep</span>(<span class="st">&quot;&lt;h3&gt;&quot;</span>, RJ, <span class="dt">perl=</span><span class="ot">TRUE</span>)]</code></pre></div>
-<pre><code>##  [1] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;                                                        
-##  [2] &quot;&lt;h3&gt;SCENE I. Verona. A public place.&lt;/h3&gt;&quot;                                
-##  [3] &quot;&lt;h3&gt;SCENE II. A street.&lt;/h3&gt;&quot;                                             
-##  [4] &quot;&lt;h3&gt;SCENE III. A room in Capulet's house.&lt;/h3&gt;&quot;                           
-##  [5] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;                                             
-##  [6] &quot;&lt;h3&gt;SCENE V. A hall in Capulet's house.&lt;/h3&gt;&quot;                             
-##  [7] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;                                                        
-##  [8] &quot;&lt;h3&gt;SCENE I. A lane by the wall of Capulet's orchard.&lt;/h3&gt;&quot;               
-##  [9] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;                                    
-## [10] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;                               
-## [11] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;                                             
-## [12] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;                                     
-## [13] &quot;&lt;h3&gt;SCENE VI. Friar Laurence's cell.&lt;/h3&gt;&quot;                                
-## [14] &quot;&lt;h3&gt;SCENE I. A public place.&lt;/h3&gt;&quot;                                        
-## [15] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;                                    
-## [16] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;                               
-## [17] &quot;&lt;h3&gt;SCENE IV. A room in Capulet's house.&lt;/h3&gt;&quot;                            
-## [18] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;                                     
-## [19] &quot;&lt;h3&gt;SCENE I. Friar Laurence's cell.&lt;/h3&gt;&quot;                                 
-## [20] &quot;&lt;h3&gt;SCENE II. Hall in Capulet's house.&lt;/h3&gt;&quot;                              
-## [21] &quot;&lt;h3&gt;SCENE III. Juliet's chamber.&lt;/h3&gt;&quot;                                    
-## [22] &quot;&lt;h3&gt;SCENE IV. Hall in Capulet's house.&lt;/h3&gt;&quot;                              
-## [23] &quot;&lt;h3&gt;SCENE V. Juliet's chamber.&lt;/h3&gt;&quot;                                      
-## [24] &quot;&lt;h3&gt;SCENE I. Mantua. A street.&lt;/h3&gt;&quot;                                      
-## [25] &quot;&lt;h3&gt;SCENE II. Friar Laurence's cell.&lt;/h3&gt;&quot;                                
+<pre><code>##  [1] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;
+##  [2] &quot;&lt;h3&gt;SCENE I. Verona. A public place.&lt;/h3&gt;&quot;
+##  [3] &quot;&lt;h3&gt;SCENE II. A street.&lt;/h3&gt;&quot;
+##  [4] &quot;&lt;h3&gt;SCENE III. A room in Capulet's house.&lt;/h3&gt;&quot;
+##  [5] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;
+##  [6] &quot;&lt;h3&gt;SCENE V. A hall in Capulet's house.&lt;/h3&gt;&quot;
+##  [7] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;
+##  [8] &quot;&lt;h3&gt;SCENE I. A lane by the wall of Capulet's orchard.&lt;/h3&gt;&quot;
+##  [9] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;
+## [10] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [11] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;
+## [12] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;
+## [13] &quot;&lt;h3&gt;SCENE VI. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [14] &quot;&lt;h3&gt;SCENE I. A public place.&lt;/h3&gt;&quot;
+## [15] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;
+## [16] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [17] &quot;&lt;h3&gt;SCENE IV. A room in Capulet's house.&lt;/h3&gt;&quot;
+## [18] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;
+## [19] &quot;&lt;h3&gt;SCENE I. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [20] &quot;&lt;h3&gt;SCENE II. Hall in Capulet's house.&lt;/h3&gt;&quot;
+## [21] &quot;&lt;h3&gt;SCENE III. Juliet's chamber.&lt;/h3&gt;&quot;
+## [22] &quot;&lt;h3&gt;SCENE IV. Hall in Capulet's house.&lt;/h3&gt;&quot;
+## [23] &quot;&lt;h3&gt;SCENE V. Juliet's chamber.&lt;/h3&gt;&quot;
+## [24] &quot;&lt;h3&gt;SCENE I. Mantua. A street.&lt;/h3&gt;&quot;
+## [25] &quot;&lt;h3&gt;SCENE II. Friar Laurence's cell.&lt;/h3&gt;&quot;
 ## [26] &quot;&lt;h3&gt;SCENE III. A churchyard; in it a tomb belonging to the Capulets.&lt;/h3&gt;&quot;</code></pre>
 <p>or maybe pull information out of an RSS feed</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">link &lt;-<span class="st"> &quot;http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml&quot;</span>
@@ -210,20 +210,20 @@ data &lt;-<span class="st"> </span><span class="kw">fetch</span>(<span class="kw
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;RPostgreSQL&quot;</span>)
 <span class="kw">library</span>(RPostgreSQL)
 con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class="kw">dbDriver</span>(<span class="st">&quot;PostgreSQL&quot;</span>),
-                 <span class="dt">dbname=</span><span class="st">&quot;&quot;</span>, 
+                 <span class="dt">dbname=</span><span class="st">&quot;&quot;</span>,
                  <span class="dt">host=</span><span class="st">&quot;localhost&quot;</span>,
-                 <span class="dt">port=</span><span class="dv">1234</span>, 
-                 <span class="dt">user=</span><span class="st">&quot;&quot;</span>, 
+                 <span class="dt">port=</span><span class="dv">1234</span>,
+                 <span class="dt">user=</span><span class="st">&quot;&quot;</span>,
                  <span class="dt">password=</span><span class="st">&quot;&quot;</span>)
 data &lt;-<span class="st"> </span><span class="kw">dbReadTable</span>(con, <span class="kw">c</span>(<span class="st">&quot;column1&quot;</span>,<span class="st">&quot;column2&quot;</span>))
 <span class="kw">dbDisconnect</span>(con)</code></pre></div>
 <p>a popular non-relational database is MongoDB</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;rmongodb&quot;</span>)
 <span class="kw">library</span>(rmongodb)
-con &lt;-<span class="st"> </span><span class="kw">mongo.create</span>(<span class="dt">host =</span> localhost, 
-                      <span class="dt">name =</span> <span class="st">&quot;&quot;</span>, 
-                      <span class="dt">username =</span> <span class="st">&quot;&quot;</span>, 
-                      <span class="dt">password =</span> <span class="st">&quot;&quot;</span>, 
+con &lt;-<span class="st"> </span><span class="kw">mongo.create</span>(<span class="dt">host =</span> localhost,
+                      <span class="dt">name =</span> <span class="st">&quot;&quot;</span>,
+                      <span class="dt">username =</span> <span class="st">&quot;&quot;</span>,
+                      <span class="dt">password =</span> <span class="st">&quot;&quot;</span>,
                       <span class="dt">db =</span> <span class="st">&quot;admin&quot;</span>)
 if(<span class="kw">mongo.is.connected</span>(con) ==<span class="st"> </span><span class="ot">TRUE</span>) {
   data &lt;-<span class="st"> </span><span class="kw">mongo.find.all</span>(con, <span class="st">&quot;collection&quot;</span>, <span class="kw">list</span>(<span class="st">&quot;city&quot;</span> =<span class="st"> </span><span class="kw">list</span>( <span class="st">&quot;$exists&quot;</span> =<span class="st"> &quot;true&quot;</span>)))
@@ -260,7 +260,7 @@ if(<span class="kw">mongo.is.connected</span>(con) ==<span class="st"> </span><s
 mydata &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;http://www.ats.ucla.edu/stat/data/binary.csv&quot;</span>)
 <span class="co"># Consider the case where we want to calculate descriptive statistics across admits and not-admits</span>
 <span class="co"># from the dataset and return them as a data.frame</span>
-ddata &lt;-<span class="st"> </span><span class="kw">ddply</span>(mydata, <span class="kw">c</span>(<span class="st">&quot;admit&quot;</span>), summarize, 
+ddata &lt;-<span class="st"> </span><span class="kw">ddply</span>(mydata, <span class="kw">c</span>(<span class="st">&quot;admit&quot;</span>), summarize,
                 <span class="dt">gpa.over3 =</span> <span class="kw">length</span>(gpa[gpa&gt;=<span class="dv">3</span>]),
                 <span class="dt">gpa.over3.5 =</span> <span class="kw">length</span>(gpa[gpa&gt;=<span class="fl">3.5</span>]),
                 <span class="dt">gpa.over3per =</span> <span class="kw">length</span>(gpa[gpa&gt;=<span class="dv">3</span>])/<span class="kw">length</span>(gpa),
@@ -277,7 +277,7 @@ ddata &lt;-<span class="st"> </span><span class="kw">ddply</span>(mydata, <span 
 </div>
 <div id="add-a-column-containing-the-average-gre-score-of-students" class="slide section level1">
 <h1>add a column containing the average gre score of students</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydata &lt;-<span class="st"> </span><span class="kw">ddply</span>(mydata, <span class="kw">c</span>(<span class="st">&quot;admit&quot;</span>), transform, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydata &lt;-<span class="st"> </span><span class="kw">ddply</span>(mydata, <span class="kw">c</span>(<span class="st">&quot;admit&quot;</span>), transform,
                 <span class="dt">gre.ave=</span><span class="kw">mean</span>(<span class="dt">x=</span>gre, <span class="dt">na.rm=</span>T),
                 <span class="dt">gre.sd =</span> <span class="kw">sd</span>(<span class="dt">x=</span>gre, <span class="dt">na.rm=</span>T))
 <span class="kw">head</span>(mydata)

@@ -54,7 +54,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="author">
 Dillon Niederhut
   </p>
-  <p class="date">02 May, 2016</p>
+  <p class="date">24 May, 2016</p>
 </div>
 <div class="slide section level1">
 
@@ -94,133 +94,166 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 <h2 id="r-provides-two-easysimple-summary-functions-in-the-base-package">R provides two easy/simple summary functions in the base package</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dat)</code></pre></div>
 <pre><code>##    timestamp          course.delivered instructor.communicated
-##  Min.   :2014-08-19   Min.   :1.000    Min.   :1.000          
-##  1st Qu.:2014-11-05   1st Qu.:6.000    1st Qu.:6.000          
-##  Median :2015-01-30   Median :7.000    Median :7.000          
-##  Mean   :2015-01-22   Mean   :6.251    Mean   :6.257          
-##  3rd Qu.:2015-04-03   3rd Qu.:7.000    3rd Qu.:7.000          
-##  Max.   :2015-06-22   Max.   :7.000    Max.   :7.000          
-##                                                               
-##                                      hear        interest  
-##  Email from the D-Lab mailing list     :340   Min.   :1.0  
-##  Found it on the D-Lab website         :278   1st Qu.:6.0  
-##  Heard about it from a friend/colleague:247   Median :7.0  
-##  Email from another mailing list       : 99   Mean   :6.6  
-##  Don't remember                        : 12   3rd Qu.:7.0  
-##  (Other)                               : 55   Max.   :7.0  
-##  NA's                                  : 31   NA's   :15   
-##                department     verbs               useful    
-##  Public Health      : 81   Length:1062        Min.   :1.00  
-##  Public Policy      : 44   Class :character   1st Qu.:5.00  
-##  Sociology          : 38   Mode  :character   Median :6.00  
-##  Political Science  : 36                      Mean   :6.02  
-##  Integrative Biology: 28                      3rd Qu.:7.00  
-##  (Other)            :288                      Max.   :7.00  
-##  NA's               :547                                    
-##                                gender     ethnicity        
-##  Female/Woman                     :579   Length:1062       
-##  Male/Man                         :332   Class :character  
-##  Genderqueer/Gender non-conforming:  1   Mode  :character  
-##  NA's                             :150                     
-##                                                            
-##                                                            
-##                                                            
-##  outside.barriers inside.barriers what.barriers     
-##  Min.   :1.000    Min.   :1.000   Length:1062       
-##  1st Qu.:1.000    1st Qu.:1.000   Class :character  
-##  Median :1.000    Median :1.000   Mode  :character  
-##  Mean   :2.073    Mean   :1.259                     
-##  3rd Qu.:3.000    3rd Qu.:1.000                     
-##  Max.   :5.000    Max.   :5.000                     
-##  NA's   :167      NA's   :175                       
-##                             position  
-##  PhD student, dissertation stage: 41  
-##  PhD student, pre-dissertation  : 33  
-##  Visiting fellow or researcher  : 24  
-##  Masters student                : 22  
-##  Undergraduate student          : 21  
-##  (Other)                        : 64  
+##  Min.   :2014-08-19   Min.   :1.000    Min.   :1.000
+##  1st Qu.:2014-11-05   1st Qu.:6.000    1st Qu.:6.000
+##  Median :2015-01-30   Median :7.000    Median :7.000
+##  Mean   :2015-01-22   Mean   :6.251    Mean   :6.257
+##  3rd Qu.:2015-04-03   3rd Qu.:7.000    3rd Qu.:7.000
+##  Max.   :2015-06-22   Max.   :7.000    Max.   :7.000
+##
+##                                      hear        interest
+##  Email from the D-Lab mailing list     :340   Min.   :1.0
+##  Found it on the D-Lab website         :278   1st Qu.:6.0
+##  Heard about it from a friend/colleague:247   Median :7.0
+##  Email from another mailing list       : 99   Mean   :6.6
+##  Don't remember                        : 12   3rd Qu.:7.0
+##  (Other)                               : 55   Max.   :7.0
+##  NA's                                  : 31   NA's   :15
+##                department     verbs               useful
+##  Public Health      : 81   Length:1062        Min.   :1.00
+##  Public Policy      : 44   Class :character   1st Qu.:5.00
+##  Sociology          : 38   Mode  :character   Median :6.00
+##  Political Science  : 36                      Mean   :6.02
+##  Integrative Biology: 28                      3rd Qu.:7.00
+##  (Other)            :288                      Max.   :7.00
+##  NA's               :547
+##                                gender     ethnicity
+##  Female/Woman                     :579   Length:1062
+##  Male/Man                         :332   Class :character
+##  Genderqueer/Gender non-conforming:  1   Mode  :character
+##  NA's                             :150
+##
+##
+##
+##  outside.barriers inside.barriers what.barriers
+##  Min.   :1.000    Min.   :1.000   Length:1062
+##  1st Qu.:1.000    1st Qu.:1.000   Class :character
+##  Median :1.000    Median :1.000   Mode  :character
+##  Mean   :2.073    Mean   :1.259
+##  3rd Qu.:3.000    3rd Qu.:1.000
+##  Max.   :5.000    Max.   :5.000
+##  NA's   :167      NA's   :175
+##                             position
+##  PhD student, dissertation stage: 41
+##  PhD student, pre-dissertation  : 33
+##  Visiting fellow or researcher  : 24
+##  Masters student                : 22
+##  Undergraduate student          : 21
+##  (Other)                        : 64
 ##  NA's                           :857</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(dat$department)</code></pre></div>
-<pre><code>## 
-##  African American Studies  Ag &amp; Resource Econ &amp; Pol 
-##                        24                        23 
-##              Anthropology   App Sci &amp; Tech Grad Grp 
-##                        12                        10 
-##    Biostatistics Grad Grp  City &amp; Regional Planning 
-##                         8                        20 
-##                 Economics                 Education 
-##                        23                        26 
-##  Energy &amp; Resources Group   Env Sci, Policy, &amp; Mgmt 
-##                        14                        17 
-##   Ethnic Studies Grad Grp                   History 
-##                         1                        17 
-## Industrial Eng &amp; Ops Rsch               Information 
-##                         4                         9 
-##       Integrative Biology              JSP Grad Pgm 
-##                        28                         6 
-##                       Law               Linguistics 
-##                         9                        11 
-##                     Music              Neuroscience 
-##                         3                         4 
-##         Political Science                Psychology 
-##                        36                        28 
-##             Public Health             Public Policy 
-##                        81                        44 
-##                  Rhetoric    Slavic Languages &amp; Lit 
-##                        11                         8 
-##                 Sociology 
+<pre><code>##
+##  African American Studies  Ag &amp; Resource Econ &amp; Pol
+##                        24                        23
+##              Anthropology   App Sci &amp; Tech Grad Grp
+##                        12                        10
+##    Biostatistics Grad Grp  City &amp; Regional Planning
+##                         8                        20
+##                 Economics                 Education
+##                        23                        26
+##  Energy &amp; Resources Group   Env Sci, Policy, &amp; Mgmt
+##                        14                        17
+##   Ethnic Studies Grad Grp                   History
+##                         1                        17
+## Industrial Eng &amp; Ops Rsch               Information
+##                         4                         9
+##       Integrative Biology              JSP Grad Pgm
+##                        28                         6
+##                       Law               Linguistics
+##                         9                        11
+##                     Music              Neuroscience
+##                         3                         4
+##         Political Science                Psychology
+##                        36                        28
+##             Public Health             Public Policy
+##                        81                        44
+##                  Rhetoric    Slavic Languages &amp; Lit
+##                        11                         8
+##                 Sociology
 ##                        38</code></pre>
-<p>think back to day one - how would we make weekdays out of the date variable?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat$wday &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">weekdays</span>(dat$timestamp, <span class="dt">abbreviate =</span> <span class="ot">TRUE</span>), 
-                   <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'Mon'</span>,<span class="st">'Tue'</span>,<span class="st">'Wed'</span>,<span class="st">'Thu'</span>,<span class="st">'Fri'</span>,<span class="st">'Sat'</span>,<span class="st">'Sun'</span>)
-                   )
-<span class="kw">summary</span>(dat$wday)</code></pre></div>
-<pre><code>## Mon Tue Wed Thu Fri Sat Sun 
-## 168 124 144 323 277  16  10</code></pre>
-<h2 id="reshape-provides-a-few-more-ways-to-aggregate-things">reshape provides a few more ways to aggregate things</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape2)
-<span class="kw">dcast</span>(dat[dat$gender ==<span class="st"> 'Female/Woman'</span> |<span class="st"> </span>dat$gender ==<span class="st"> 'Male/Man'</span>,], department ~<span class="st"> </span>gender)</code></pre></div>
-<pre><code>## Using wday as value column: use value.var to override.
-## Aggregation function missing: defaulting to length</code></pre>
-<pre><code>##                   department Female/Woman Male/Man  NA
-## 1   African American Studies            8       16   0
-## 2   Ag &amp; Resource Econ &amp; Pol           20        3   0
-## 3               Anthropology            9        3   0
-## 4    App Sci &amp; Tech Grad Grp            6        4   0
-## 5     Biostatistics Grad Grp            5        3   0
-## 6   City &amp; Regional Planning           12        7   0
-## 7                  Economics           16        5   0
-## 8                  Education           20        3   0
-## 9   Energy &amp; Resources Group           10        3   0
-## 10   Env Sci, Policy, &amp; Mgmt           11        5   0
-## 11   Ethnic Studies Grad Grp            1        0   0
-## 12                   History            9        6   0
-## 13 Industrial Eng &amp; Ops Rsch            2        2   0
-## 14               Information            2        7   0
-## 15       Integrative Biology           20        8   0
-## 16              JSP Grad Pgm            5        1   0
-## 17                       Law            5        4   0
-## 18               Linguistics            8        1   0
-## 19                     Music            2        0   0
-## 20              Neuroscience            0        4   0
-## 21         Political Science           17       18   0
-## 22                Psychology           20        8   0
-## 23             Public Health           55       19   0
-## 24             Public Policy           22       21   0
-## 25                  Rhetoric            0       11   0
-## 26    Slavic Languages &amp; Lit            7        1   0
-## 27                 Sociology           23       12   0
-## 28                      &lt;NA&gt;          264      157 150</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dcast</span>(<span class="kw">melt</span>(dat, <span class="dt">measure.vars =</span> <span class="kw">c</span>(<span class="st">'course.delivered'</span>)), wday ~<span class="st"> 'Delivered'</span>, <span class="dt">fun.aggregate =</span> mean)</code></pre></div>
-<pre><code>##   wday Delivered
-## 1  Mon  6.309524
-## 2  Tue  6.274194
-## 3  Wed  6.159722
-## 4  Thu  6.077399
-## 5  Fri  6.444043
-## 6  Sat  6.250000
-## 7  Sun  6.600000</code></pre>
+<h2 id="the-psych-package-provides-trimmed-means-skew-kurtosis-and-missingness">the <code>psych</code> package provides trimmed means, skew, kurtosis, and missingness</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)
+<span class="kw">describe</span>(dat)</code></pre></div>
+<pre><code>## Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning
+## Inf</code></pre>
+<pre><code>## Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning
+## Inf</code></pre>
+<pre><code>## Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning
+## Inf</code></pre>
+<pre><code>## Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning
+## Inf</code></pre>
+<pre><code>## Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning
+## -Inf</code></pre>
+<pre><code>## Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning
+## -Inf</code></pre>
+<pre><code>## Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning
+## -Inf</code></pre>
+<pre><code>## Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning
+## -Inf</code></pre>
+<pre><code>##                         vars    n  mean   sd median trimmed  mad min  max
+## timestamp*                 1 1062   NaN   NA     NA     NaN   NA Inf -Inf
+## course.delivered           2 1062  6.25 1.11      7    6.47 0.00   1    7
+## instructor.communicated    3 1062  6.26 1.08      7    6.47 0.00   1    7
+## hear*                      4 1031 23.08 6.77     24   23.10 7.41   1   51
+## interest                   5 1047  6.60 0.80      7    6.79 0.00   1    7
+## department*                6  515 15.86 8.45     18   16.29 8.90   1   27
+## verbs*                     7  383   NaN   NA     NA     NaN   NA Inf -Inf
+## useful                     8 1062  6.02 1.20      6    6.23 1.48   1    7
+## gender*                    9  912  1.37 0.48      1    1.33 0.00   1    3
+## ethnicity*                10 1062   NaN   NA     NA     NaN   NA Inf -Inf
+## outside.barriers          11  895  2.07 1.29      1    1.89 0.00   1    5
+## inside.barriers           12  887  1.26 0.68      1    1.07 0.00   1    5
+## what.barriers*            13  120   NaN   NA     NA     NaN   NA Inf -Inf
+## position*                 14  205 13.14 5.84     14   13.70 2.97   1   23
+##                         range  skew kurtosis   se
+## timestamp*               -Inf    NA       NA   NA
+## course.delivered            6 -1.92     4.20 0.03
+## instructor.communicated     6 -1.92     4.35 0.03
+## hear*                      50  0.44     0.88 0.21
+## interest                    6 -2.84    11.11 0.02
+## department*                26 -0.37    -1.34 0.37
+## verbs*                   -Inf    NA       NA   NA
+## useful                      6 -1.57     2.89 0.04
+## gender*                     2  0.58    -1.58 0.02
+## ethnicity*               -Inf    NA       NA   NA
+## outside.barriers            4  0.87    -0.53 0.04
+## inside.barriers             4  2.93     8.62 0.02
+## what.barriers*           -Inf    NA       NA   NA
+## position*                  22 -0.85    -0.27 0.41</code></pre>
+<h2 id="you-can-use-dplyrgroupby-to-generate-summaries">you can use dplyr::groupby to generate summaries</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+dat %&gt;%<span class="st"> </span><span class="kw">group_by</span>(gender) %&gt;%<span class="st"> </span><span class="kw">summarize</span>(<span class="kw">n</span>())</code></pre></div>
+<pre><code>## Source: local data frame [4 x 2]
+##
+##                              gender   n()
+##                              (fctr) (int)
+## 1                      Female/Woman   579
+## 2                          Male/Man   332
+## 3 Genderqueer/Gender non-conforming     1
+## 4                                NA   150</code></pre>
+<h2 id="and-you-can-combine-dplyr-with-tidyrspread-to-generate-crosstabs">and you can combine dplyr with tidyr::spread to generate crosstabs</h2>
+<blockquote>
+<p>side note - we are filtering out missing values of gender, because <code>tidyr</code> doesn’t allow <code>NA</code> as a column name</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)
+dat %&gt;%<span class="st"> </span><span class="kw">filter</span>(!<span class="kw">is.na</span>(gender)) %&gt;%<span class="st"> </span><span class="kw">group_by</span>(gender, department) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n=</span><span class="kw">n</span>()) %&gt;%<span class="st"> </span><span class="kw">spread</span>(gender, n)</code></pre></div>
+<pre><code>## Source: local data frame [28 x 4]
+##
+##                  department Female/Woman Male/Man
+##                      (fctr)        (int)    (int)
+## 1  African American Studies            8       16
+## 2  Ag &amp; Resource Econ &amp; Pol           20        3
+## 3              Anthropology            9        3
+## 4   App Sci &amp; Tech Grad Grp            6        4
+## 5    Biostatistics Grad Grp            5        3
+## 6  City &amp; Regional Planning           12        7
+## 7                 Economics           16        5
+## 8                 Education           20        3
+## 9  Energy &amp; Resources Group           10        3
+## 10  Env Sci, Policy, &amp; Mgmt           11        5
+## ..                      ...          ...      ...
+## Variables not shown: Genderqueer/Gender non-conforming (int)</code></pre>
 </div>
 <div id="plotting" class="slide section level1">
 <h1>Plotting</h1>
@@ -239,10 +272,21 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 <li><p>you can stack as many layers as you like</p></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">'ggplot2'</span>)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ## The downloaded binary packages are in
-##  /var/folders/rj/8gpcssqd52z9yrqw7f8xxfym0000gn/T//Rtmp2xjYZ7/downloaded_packages</code></pre>
+##  /var/folders/rj/8gpcssqd52z9yrqw7f8xxfym0000gn/T//RtmpmP1txl/downloaded_packages</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+<h2 id="getting-weekdays">getting weekdays</h2>
+<p>let’s imagine that we are interested in looking at differences in feedback based on the day of the week – how would we do this in R?</p>
+<blockquote>
+<p>side note - <code>weekdays</code> is locale aware, so students who have their laptop language set to something other than english will get their weekday names in the other language</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat$wday &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">weekdays</span>(dat$timestamp, <span class="dt">abbreviate =</span> <span class="ot">TRUE</span>),
+                   <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">'Mon'</span>,<span class="st">'Tue'</span>,<span class="st">'Wed'</span>,<span class="st">'Thu'</span>,<span class="st">'Fri'</span>,<span class="st">'Sat'</span>,<span class="st">'Sun'</span>)
+                   )
+<span class="kw">summary</span>(dat$wday)</code></pre></div>
+<pre><code>## Mon Tue Wed Thu Fri Sat Sun
+## 168 124 144 323 277  16  10</code></pre>
 <h2 id="use-qplot-for-initial-poking-around">use qplot for initial poking around</h2>
 <p>it has very strong intuitions about what you want to see, and is not particularly customizable</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(instructor.communicated, <span class="dt">data =</span> dat)</code></pre></div>
@@ -323,45 +367,45 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 <p>we’ll start by trying to tell whether differences between group summaries are real</p>
 <h2 id="t.test-with-two-vectors-default-method">t.test with two vectors (default method)</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(dat$inside.barriers, dat$outside.barriers)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ##  Welch Two Sample t-test
-## 
+##
 ## data:  dat$inside.barriers and dat$outside.barriers
 ## t = -16.638, df = 1356.8, p-value &lt; 2.2e-16
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
 ##  -0.9092224 -0.7174269
 ## sample estimates:
-## mean of x mean of y 
+## mean of x mean of y
 ##  1.259301  2.072626</code></pre>
 <p>note that R takes care of the defaults for you - what it is really computing is `t.test(dat<span class="math inline">\(inside.barriers, dat\)</span>outside.barriers, alternative = “two.sided”, paired = FALSE, var.equal = FALSE, mu = 0, conf.level = 0.95)</p>
 <p>how would you find this out for yourself?</p>
 <h2 id="t.test-with-subsets-of-one-vector-default-method">t.test with subsets of one vector (default method)</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(dat$outside.barriers[dat$gender ==<span class="st"> &quot;Male/Man&quot;</span>], dat$outside.barriers[dat$gender ==<span class="st"> &quot;Female/Woman&quot;</span>])</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ##  Welch Two Sample t-test
-## 
+##
 ## data:  dat$outside.barriers[dat$gender == &quot;Male/Man&quot;] and dat$outside.barriers[dat$gender == &quot;Female/Woman&quot;]
 ## t = -6.9925, df = 748.19, p-value = 5.993e-12
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
 ##  -0.7650033 -0.4296142
 ## sample estimates:
-## mean of x mean of y 
+## mean of x mean of y
 ##  1.702875  2.300184</code></pre>
 <p>recall that we mentioned inconsistency on day one - here it is, and in a big way</p>
 <h2 id="t.test-with-s3-method">t.test with S3 method</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(outside.barriers ~<span class="st"> </span>gender, <span class="dt">data =</span> dat, <span class="dt">subset =</span> dat$gender %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Male/Man&quot;</span>, <span class="st">&quot;Female/Woman&quot;</span>))</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ##  Welch Two Sample t-test
-## 
+##
 ## data:  outside.barriers by gender
 ## t = 6.9925, df = 748.19, p-value = 5.993e-12
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
 ##  0.4296142 0.7650033
 ## sample estimates:
-## mean in group Female/Woman     mean in group Male/Man 
+## mean in group Female/Woman     mean in group Male/Man
 ##                   2.300184                   1.702875</code></pre>
 <h2 id="aov">aov</h2>
 <p>first, you would think anova would be called by <code>anova</code>, but that’s reserved for conducting F-tests on lm objects</p>
@@ -372,12 +416,12 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aov</span>(outside.barriers ~<span class="st"> </span>gender, <span class="dt">data =</span> dat)</code></pre></div>
 <pre><code>## Call:
 ##    aov(formula = outside.barriers ~ gender, data = dat)
-## 
+##
 ## Terms:
 ##                    gender Residuals
 ## Sum of Squares    79.3444 1363.4374
 ## Deg. of Freedom         2       854
-## 
+##
 ## Residual standard error: 1.263539
 ## Estimated effects may be unbalanced
 ## 205 observations deleted due to missingness</code></pre>
@@ -385,9 +429,9 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 <p>remember our old friend <code>summary</code>? it works on almost everything</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">aov</span>(outside.barriers ~<span class="st"> </span>gender, <span class="dt">data =</span> dat)
 <span class="kw">summary</span>(model<span class="fl">.1</span>)</code></pre></div>
-<pre><code>##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+<pre><code>##              Df Sum Sq Mean Sq F value   Pr(&gt;F)
 ## gender        2   79.3   39.67   24.85 3.24e-11 ***
-## Residuals   854 1363.4    1.60                     
+## Residuals   854 1363.4    1.60
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 205 observations deleted due to missingness</code></pre>
@@ -395,9 +439,9 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(model<span class="fl">.1</span>)</code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
-## 
+##
 ## Fit: aov(formula = outside.barriers ~ gender, data = dat)
-## 
+##
 ## $gender
 ##                                                      diff        lwr
 ## Male/Man-Female/Woman                          -0.5973088 -0.8078392
@@ -418,16 +462,16 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 <p>earlier, we were looking at differences between the means of two variables</p>
 <p>but those variables were both continuous, so we can ask whether they are related</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(dat$outside.barriers, dat$inside.barriers)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ##  Pearson's product-moment correlation
-## 
+##
 ## data:  dat$outside.barriers and dat$inside.barriers
 ## t = 15.558, df = 882, p-value &lt; 2.2e-16
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
 ##  0.4106679 0.5142422
 ## sample estimates:
-##       cor 
+##       cor
 ## 0.4640396</code></pre>
 <p>okay, so they’re related - now what?</p>
 <h2 id="lm">lm</h2>
@@ -436,37 +480,37 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 <p>the basic call is the S3 method</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(inside.barriers ~<span class="st"> </span>outside.barriers, <span class="dt">data =</span> dat)
 <span class="kw">summary</span>(model<span class="fl">.1</span>)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ## Call:
 ## lm(formula = inside.barriers ~ outside.barriers, data = dat)
-## 
+##
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -0.98483 -0.24569  0.00069  0.00069  3.01517 
-## 
+##      Min       1Q   Median       3Q      Max
+## -0.98483 -0.24569  0.00069  0.00069  3.01517
+##
 ## Coefficients:
-##                  Estimate Std. Error t value Pr(&gt;|t|)    
+##                  Estimate Std. Error t value Pr(&gt;|t|)
 ## (Intercept)       0.75292    0.03842   19.60   &lt;2e-16 ***
 ## outside.barriers  0.24638    0.01584   15.56   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
+##
 ## Residual standard error: 0.6041 on 882 degrees of freedom
 ##   (178 observations deleted due to missingness)
-## Multiple R-squared:  0.2153, Adjusted R-squared:  0.2144 
+## Multiple R-squared:  0.2153, Adjusted R-squared:  0.2144
 ## F-statistic:   242 on 1 and 882 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h2 id="r-automatically-one-hot-encodes-your-categories">R automatically one-hot encodes your categories</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(inside.barriers ~<span class="st"> </span>outside.barriers +<span class="st"> </span>department, <span class="dt">data =</span> dat)
 <span class="kw">summary</span>(model<span class="fl">.2</span>)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ## Call:
-## lm(formula = inside.barriers ~ outside.barriers + department, 
+## lm(formula = inside.barriers ~ outside.barriers + department,
 ##     data = dat)
-## 
+##
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.20049 -0.36011 -0.04989  0.17705  2.91702 
-## 
+##      Min       1Q   Median       3Q      Max
+## -1.20049 -0.36011 -0.04989  0.17705  2.91702
+##
 ## Coefficients:
 ##                                     Estimate Std. Error t value Pr(&gt;|t|)
 ## (Intercept)                          0.91782    0.14467   6.344 5.57e-10
@@ -497,54 +541,54 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 ## departmentRhetoric                   0.17521    0.24153   0.725   0.4686
 ## departmentSlavic Languages &amp; Lit    -0.19495    0.26748  -0.729   0.4665
 ## departmentSociology                 -0.34162    0.17664  -1.934   0.0537
-##                                        
+##
 ## (Intercept)                         ***
 ## outside.barriers                    ***
-## departmentAg &amp; Resource Econ &amp; Pol  *  
-## departmentAnthropology                 
-## departmentApp Sci &amp; Tech Grad Grp      
-## departmentBiostatistics Grad Grp       
-## departmentCity &amp; Regional Planning     
-## departmentEconomics                 .  
-## departmentEducation                    
-## departmentEnergy &amp; Resources Group  .  
-## departmentEnv Sci, Policy, &amp; Mgmt      
-## departmentEthnic Studies Grad Grp      
-## departmentHistory                      
-## departmentIndustrial Eng &amp; Ops Rsch    
-## departmentInformation                  
-## departmentIntegrative Biology       .  
-## departmentJSP Grad Pgm                 
-## departmentLaw                          
-## departmentLinguistics                  
-## departmentMusic                        
-## departmentNeuroscience                 
-## departmentPolitical Science            
-## departmentPsychology                   
-## departmentPublic Health             *  
-## departmentPublic Policy                
-## departmentRhetoric                     
-## departmentSlavic Languages &amp; Lit       
-## departmentSociology                 .  
+## departmentAg &amp; Resource Econ &amp; Pol  *
+## departmentAnthropology
+## departmentApp Sci &amp; Tech Grad Grp
+## departmentBiostatistics Grad Grp
+## departmentCity &amp; Regional Planning
+## departmentEconomics                 .
+## departmentEducation
+## departmentEnergy &amp; Resources Group  .
+## departmentEnv Sci, Policy, &amp; Mgmt
+## departmentEthnic Studies Grad Grp
+## departmentHistory
+## departmentIndustrial Eng &amp; Ops Rsch
+## departmentInformation
+## departmentIntegrative Biology       .
+## departmentJSP Grad Pgm
+## departmentLaw
+## departmentLinguistics
+## departmentMusic
+## departmentNeuroscience
+## departmentPolitical Science
+## departmentPsychology
+## departmentPublic Health             *
+## departmentPublic Policy
+## departmentRhetoric
+## departmentSlavic Languages &amp; Lit
+## departmentSociology                 .
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
+##
 ## Residual standard error: 0.6462 on 440 degrees of freedom
 ##   (594 observations deleted due to missingness)
-## Multiple R-squared:  0.2759, Adjusted R-squared:  0.2314 
+## Multiple R-squared:  0.2759, Adjusted R-squared:  0.2314
 ## F-statistic: 6.209 on 27 and 440 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h2 id="r-does-not-assume-you-want-the-full-factorial-model">R does not assume you want the full factorial model</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model<span class="fl">.3</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(inside.barriers ~<span class="st"> </span>outside.barriers +<span class="st"> </span>department +<span class="st"> </span>outside.barriers*department, <span class="dt">data =</span> dat)
 <span class="kw">summary</span>(model<span class="fl">.3</span>)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ## Call:
-## lm(formula = inside.barriers ~ outside.barriers + department + 
+## lm(formula = inside.barriers ~ outside.barriers + department +
 ##     outside.barriers * department, data = dat)
-## 
+##
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.75495 -0.25924  0.00000  0.05784  2.80608 
-## 
+##      Min       1Q   Median       3Q      Max
+## -1.75495 -0.25924  0.00000  0.05784  2.80608
+##
 ## Coefficients: (3 not defined because of singularities)
 ##                                                        Estimate Std. Error
 ## (Intercept)                                           0.3378995  0.2274560
@@ -601,71 +645,71 @@ dat$timestamp &lt;- as.Date(dat$timestamp, &quot;%m/%d/%Y&quot;)</code></pre>
 ## outside.barriers:departmentRhetoric                   2.1457382  0.4109273
 ## outside.barriers:departmentSlavic Languages &amp; Lit            NA         NA
 ## outside.barriers:departmentSociology                 -0.4996106  0.1372998
-##                                                      t value Pr(&gt;|t|)    
-## (Intercept)                                            1.486 0.138151    
+##                                                      t value Pr(&gt;|t|)
+## (Intercept)                                            1.486 0.138151
 ## outside.barriers                                       5.636 3.22e-08 ***
-## departmentAg &amp; Resource Econ &amp; Pol                     1.634 0.102964    
-## departmentAnthropology                                 0.234 0.814794    
-## departmentApp Sci &amp; Tech Grad Grp                      0.000 0.999802    
-## departmentBiostatistics Grad Grp                      -1.350 0.177895    
-## departmentCity &amp; Regional Planning                     0.836 0.403848    
-## departmentEconomics                                    2.013 0.044719 *  
-## departmentEducation                                    0.359 0.719428    
-## departmentEnergy &amp; Resources Group                     1.609 0.108295    
-## departmentEnv Sci, Policy, &amp; Mgmt                      0.379 0.704979    
-## departmentEthnic Studies Grad Grp                     -0.911 0.362671    
-## departmentHistory                                     -0.480 0.631266    
-## departmentIndustrial Eng &amp; Ops Rsch                    0.405 0.685368    
-## departmentInformation                                  0.532 0.595352    
-## departmentIntegrative Biology                          1.694 0.091057 .  
-## departmentJSP Grad Pgm                                -0.595 0.552372    
-## departmentLaw                                          1.712 0.087560 .  
-## departmentLinguistics                                  1.932 0.054032 .  
-## departmentMusic                                       -1.261 0.208134    
-## departmentNeuroscience                                 0.717 0.473811    
-## departmentPolitical Science                            1.203 0.229669    
-## departmentPsychology                                   2.158 0.031503 *  
-## departmentPublic Health                                1.668 0.096018 .  
-## departmentPublic Policy                                1.009 0.313790    
+## departmentAg &amp; Resource Econ &amp; Pol                     1.634 0.102964
+## departmentAnthropology                                 0.234 0.814794
+## departmentApp Sci &amp; Tech Grad Grp                      0.000 0.999802
+## departmentBiostatistics Grad Grp                      -1.350 0.177895
+## departmentCity &amp; Regional Planning                     0.836 0.403848
+## departmentEconomics                                    2.013 0.044719 *
+## departmentEducation                                    0.359 0.719428
+## departmentEnergy &amp; Resources Group                     1.609 0.108295
+## departmentEnv Sci, Policy, &amp; Mgmt                      0.379 0.704979
+## departmentEthnic Studies Grad Grp                     -0.911 0.362671
+## departmentHistory                                     -0.480 0.631266
+## departmentIndustrial Eng &amp; Ops Rsch                    0.405 0.685368
+## departmentInformation                                  0.532 0.595352
+## departmentIntegrative Biology                          1.694 0.091057 .
+## departmentJSP Grad Pgm                                -0.595 0.552372
+## departmentLaw                                          1.712 0.087560 .
+## departmentLinguistics                                  1.932 0.054032 .
+## departmentMusic                                       -1.261 0.208134
+## departmentNeuroscience                                 0.717 0.473811
+## departmentPolitical Science                            1.203 0.229669
+## departmentPsychology                                   2.158 0.031503 *
+## departmentPublic Health                                1.668 0.096018 .
+## departmentPublic Policy                                1.009 0.313790
 ## departmentRhetoric                                    -5.518 6.03e-08 ***
-## departmentSlavic Languages &amp; Lit                       0.226 0.821167    
-## departmentSociology                                    2.034 0.042571 *  
+## departmentSlavic Languages &amp; Lit                       0.226 0.821167
+## departmentSociology                                    2.034 0.042571 *
 ## outside.barriers:departmentAg &amp; Resource Econ &amp; Pol   -3.649 0.000297 ***
-## outside.barriers:departmentAnthropology               -1.118 0.264358    
-## outside.barriers:departmentApp Sci &amp; Tech Grad Grp     0.006 0.995116    
-## outside.barriers:departmentBiostatistics Grad Grp      1.303 0.193236    
-## outside.barriers:departmentCity &amp; Regional Planning   -1.007 0.314480    
+## outside.barriers:departmentAnthropology               -1.118 0.264358
+## outside.barriers:departmentApp Sci &amp; Tech Grad Grp     0.006 0.995116
+## outside.barriers:departmentBiostatistics Grad Grp      1.303 0.193236
+## outside.barriers:departmentCity &amp; Regional Planning   -1.007 0.314480
 ## outside.barriers:departmentEconomics                  -3.395 0.000752 ***
-## outside.barriers:departmentEducation                  -1.409 0.159722    
-## outside.barriers:departmentEnergy &amp; Resources Group   -3.251 0.001242 ** 
-## outside.barriers:departmentEnv Sci, Policy, &amp; Mgmt    -0.852 0.394793    
-## outside.barriers:departmentEthnic Studies Grad Grp        NA       NA    
-## outside.barriers:departmentHistory                     1.036 0.300571    
-## outside.barriers:departmentIndustrial Eng &amp; Ops Rsch  -1.034 0.301967    
-## outside.barriers:departmentInformation                -1.137 0.256041    
-## outside.barriers:departmentIntegrative Biology        -3.273 0.001154 ** 
-## outside.barriers:departmentJSP Grad Pgm                0.826 0.409544    
+## outside.barriers:departmentEducation                  -1.409 0.159722
+## outside.barriers:departmentEnergy &amp; Resources Group   -3.251 0.001242 **
+## outside.barriers:departmentEnv Sci, Policy, &amp; Mgmt    -0.852 0.394793
+## outside.barriers:departmentEthnic Studies Grad Grp        NA       NA
+## outside.barriers:departmentHistory                     1.036 0.300571
+## outside.barriers:departmentIndustrial Eng &amp; Ops Rsch  -1.034 0.301967
+## outside.barriers:departmentInformation                -1.137 0.256041
+## outside.barriers:departmentIntegrative Biology        -3.273 0.001154 **
+## outside.barriers:departmentJSP Grad Pgm                0.826 0.409544
 ## outside.barriers:departmentLaw                        -3.329 0.000950 ***
-## outside.barriers:departmentLinguistics                -3.011 0.002758 ** 
-## outside.barriers:departmentMusic                          NA       NA    
-## outside.barriers:departmentNeuroscience               -0.882 0.378243    
-## outside.barriers:departmentPolitical Science          -2.181 0.029771 *  
-## outside.barriers:departmentPsychology                 -3.046 0.002465 ** 
+## outside.barriers:departmentLinguistics                -3.011 0.002758 **
+## outside.barriers:departmentMusic                          NA       NA
+## outside.barriers:departmentNeuroscience               -0.882 0.378243
+## outside.barriers:departmentPolitical Science          -2.181 0.029771 *
+## outside.barriers:departmentPsychology                 -3.046 0.002465 **
 ## outside.barriers:departmentPublic Health              -3.660 0.000284 ***
-## outside.barriers:departmentPublic Policy              -1.996 0.046612 *  
+## outside.barriers:departmentPublic Policy              -1.996 0.046612 *
 ## outside.barriers:departmentRhetoric                    5.222 2.80e-07 ***
-## outside.barriers:departmentSlavic Languages &amp; Lit         NA       NA    
+## outside.barriers:departmentSlavic Languages &amp; Lit         NA       NA
 ## outside.barriers:departmentSociology                  -3.639 0.000308 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
+##
 ## Residual standard error: 0.586 on 417 degrees of freedom
 ##   (594 observations deleted due to missingness)
-## Multiple R-squared:  0.4357, Adjusted R-squared:  0.368 
+## Multiple R-squared:  0.4357, Adjusted R-squared:  0.368
 ## F-statistic: 6.439 on 50 and 417 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h2 id="extract-model-parameters-with">extract model parameters with <code>$</code></h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model<span class="fl">.1</span>$coefficients</code></pre></div>
-<pre><code>##      (Intercept) outside.barriers 
+<pre><code>##      (Intercept) outside.barriers
 ##        0.7529250        0.2463815</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model<span class="fl">.1</span>$coefficients[[<span class="dv">2</span>]]</code></pre></div>
 <pre><code>## [1] 0.2463815</code></pre>
@@ -696,9 +740,9 @@ dat.listwise$resid &lt;-<span class="st"> </span>model<span class="fl">.1</span>
 <h2 id="median-testing-ranks">median testing ranks</h2>
 <p>we use Mann-Whitney sums to test that the ranks are centered the same way</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(dat$outside.barriers, dat$inside.barriers, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">paired =</span> <span class="ot">FALSE</span>, <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ##  Wilcoxon rank sum test with continuity correction
-## 
+##
 ## data:  dat$outside.barriers and dat$inside.barriers
 ## W = 541240, p-value &lt; 2.2e-16
 ## alternative hypothesis: true location shift is not equal to 0</code></pre>
@@ -708,14 +752,14 @@ dat.listwise$resid &lt;-<span class="st"> </span>model<span class="fl">.1</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(dat$outside.barriers, dat$inside.barriers, <span class="dt">method =</span> <span class="st">'spearman'</span>)</code></pre></div>
 <pre><code>## Warning in cor.test.default(dat$outside.barriers, dat$inside.barriers,
 ## method = &quot;spearman&quot;): Cannot compute exact p-value with ties</code></pre>
-<pre><code>## 
+<pre><code>##
 ##  Spearman's rank correlation rho
-## 
+##
 ## data:  dat$outside.barriers and dat$inside.barriers
 ## S = 63037000, p-value &lt; 2.2e-16
 ## alternative hypothesis: true rho is not equal to 0
 ## sample estimates:
-##       rho 
+##       rho
 ## 0.4524909</code></pre>
 <p>rho is pretty close to the r from above</p>
 <h2 id="chisq">chisq</h2>
@@ -724,9 +768,9 @@ dat.listwise$resid &lt;-<span class="st"> </span>model<span class="fl">.1</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(dat$gender, dat$department)</code></pre></div>
 <pre><code>## Warning in chisq.test(dat$gender, dat$department): Chi-squared
 ## approximation may be incorrect</code></pre>
-<pre><code>## 
+<pre><code>##
 ##  Pearson's Chi-squared test
-## 
+##
 ## data:  dat$gender and dat$department
 ## X-squared = 76.442, df = 26, p-value = 7.326e-07</code></pre>
 </div>
