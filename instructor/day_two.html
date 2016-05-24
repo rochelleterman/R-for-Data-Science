@@ -55,7 +55,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="author">
 Dillon Niederhut<br />Shinhye Choi
   </p>
-  <p class="date">02 May, 2016</p>
+  <p class="date">24 May, 2016</p>
 </div>
 <div id="review" class="slide section level1">
 <h1>Review</h1>
@@ -66,28 +66,28 @@ Dillon Niederhut<br />Shinhye Choi
 <h2 id="inspecting-variables">Inspecting variables</h2>
 <p>We should see 50 levels in this division variable</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">state.division</code></pre></div>
-<pre><code>##  [1] East South Central Pacific            Mountain          
-##  [4] West South Central Pacific            Mountain          
-##  [7] New England        South Atlantic     South Atlantic    
-## [10] South Atlantic     Pacific            Mountain          
+<pre><code>##  [1] East South Central Pacific            Mountain
+##  [4] West South Central Pacific            Mountain
+##  [7] New England        South Atlantic     South Atlantic
+## [10] South Atlantic     Pacific            Mountain
 ## [13] East North Central East North Central West North Central
 ## [16] West North Central East South Central West South Central
-## [19] New England        South Atlantic     New England       
+## [19] New England        South Atlantic     New England
 ## [22] East North Central West North Central East South Central
 ## [25] West North Central Mountain           West North Central
-## [28] Mountain           New England        Middle Atlantic   
-## [31] Mountain           Middle Atlantic    South Atlantic    
+## [28] Mountain           New England        Middle Atlantic
+## [31] Mountain           Middle Atlantic    South Atlantic
 ## [34] West North Central East North Central West South Central
-## [37] Pacific            Middle Atlantic    New England       
+## [37] Pacific            Middle Atlantic    New England
 ## [40] South Atlantic     West North Central East South Central
-## [43] West South Central Mountain           New England       
-## [46] South Atlantic     Pacific            South Atlantic    
-## [49] East North Central Mountain          
+## [43] West South Central Mountain           New England
+## [46] South Atlantic     Pacific            South Atlantic
+## [49] East North Central Mountain
 ## 9 Levels: New England Middle Atlantic ... Pacific</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(state.division)</code></pre></div>
 <pre><code>## [1] 50</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(state.division)</code></pre></div>
-<pre><code>## [1] &quot;New England&quot;        &quot;Middle Atlantic&quot;    &quot;South Atlantic&quot;    
+<pre><code>## [1] &quot;New England&quot;        &quot;Middle Atlantic&quot;    &quot;South Atlantic&quot;
 ## [4] &quot;East South Central&quot; &quot;West South Central&quot; &quot;East North Central&quot;
 ## [7] &quot;West North Central&quot; &quot;Mountain&quot;           &quot;Pacific&quot;</code></pre>
 <h2 id="inspecting-data-frames">Inspecting data frames</h2>
@@ -190,7 +190,7 @@ Dillon Niederhut<br />Shinhye Choi
 <span class="kw">str</span>(dirty)</code></pre></div>
 <pre><code>## 'data.frame':    5 obs. of  5 variables:
 ##  $ Timestamp                  : Factor w/ 5 levels &quot;7/25/2015 10:08:41&quot;,..: 1 2 3 4 5
-##  $ How.tall.are.you.          : Factor w/ 5 levels &quot;156&quot;,&quot;2.1&quot;,&quot;5’9&quot;,..: 5 4 3 2 1
+##  $ How.tall.are.you.          : Factor w/ 5 levels &quot;156&quot;,&quot;2.1&quot;,&quot;5'9&quot;,..: 5 4 3 2 1
 ##  $ What.department.are.you.in.: Factor w/ 5 levels &quot;  geology&quot;,&quot;999&quot;,..: 4 2 1 5 3
 ##  $ Are.you.currently.enrolled.: Factor w/ 3 levels &quot;999&quot;,&quot;No&quot;,&quot;Yes&quot;: 3 3 1 2 1
 ##  $ What.is.your.birth.order.  : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;9,000&quot;: 1 1 2 3 2</code></pre>
@@ -200,16 +200,16 @@ Dillon Niederhut<br />Shinhye Choi
 <span class="kw">str</span>(dirty)</code></pre></div>
 <pre><code>## 'data.frame':    5 obs. of  5 variables:
 ##  $ Timestamp                  : chr  &quot;7/25/2015 10:08:41&quot; &quot;7/25/2015 10:10:56&quot; &quot;7/25/2015 10:11:20&quot; &quot;7/25/2015 10:11:25&quot; ...
-##  $ How.tall.are.you.          : chr  &quot;very&quot; &quot;70&quot; &quot;5’9&quot; &quot;2.1&quot; ...
+##  $ How.tall.are.you.          : chr  &quot;very&quot; &quot;70&quot; &quot;5'9&quot; &quot;2.1&quot; ...
 ##  $ What.department.are.you.in.: chr  &quot;Geology  &quot; &quot;999&quot; &quot;  geology&quot; &quot;goelogy&quot; ...
 ##  $ Are.you.currently.enrolled.: chr  &quot;Yes&quot; &quot;Yes&quot; &quot;999&quot; &quot;No&quot; ...
 ##  $ What.is.your.birth.order.  : chr  &quot;1&quot; &quot;1&quot; &quot;2&quot; &quot;9,000&quot; ...</code></pre>
 <h2 id="lets-start-by-removing-the-empty-rows-and-columns">let’s start by removing the empty rows and columns</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(dirty)</code></pre></div>
 <pre><code>##            Timestamp How.tall.are.you. What.department.are.you.in.
-## 1 7/25/2015 10:08:41              very                   Geology  
+## 1 7/25/2015 10:08:41              very                   Geology
 ## 2 7/25/2015 10:10:56                70                         999
-## 3 7/25/2015 10:11:20               5’9                     geology
+## 3 7/25/2015 10:11:20               5'9                     geology
 ## 4 7/25/2015 10:11:25               2.1                     goelogy
 ## 5 7/25/2015 10:11:29               156                      anthro
 ##   Are.you.currently.enrolled. What.is.your.birth.order.
@@ -224,7 +224,7 @@ Dillon Niederhut<br />Shinhye Choi
 <h2 id="you-can-replace-variable-names">you can replace variable names</h2>
 <p>and you should, if they are uninformative or long</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(dirty)</code></pre></div>
-<pre><code>## [1] &quot;Timestamp&quot;                   &quot;How.tall.are.you.&quot;          
+<pre><code>## [1] &quot;Timestamp&quot;                   &quot;How.tall.are.you.&quot;
 ## [3] &quot;What.department.are.you.in.&quot; &quot;Are.you.currently.enrolled.&quot;
 ## [5] &quot;What.is.your.birth.order.&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(dirty) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;time&quot;</span>, <span class="st">&quot;height&quot;</span>, <span class="st">&quot;dept&quot;</span>, <span class="st">&quot;enroll&quot;</span>, <span class="st">&quot;birth.order&quot;</span>)</code></pre></div>
@@ -234,13 +234,13 @@ Dillon Niederhut<br />Shinhye Choi
 <pre><code>## [1] &quot;Yes&quot; &quot;Yes&quot; &quot;999&quot; &quot;No&quot;  &quot;999&quot;</code></pre>
 <h2 id="you-should-replace-all-of-these-values-in-your-dataframe-with-rs-missingness-signifier-na">you should replace all of these values in your dataframe with R’s missingness signifier, <code>NA</code></h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(dirty$enroll)</code></pre></div>
-<pre><code>## 
-## 999  No Yes 
+<pre><code>##
+## 999  No Yes
 ##   2   1   2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dirty$enroll[dirty$enroll==<span class="st">&quot;999&quot;</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
 <span class="kw">table</span>(dirty$enroll, <span class="dt">useNA =</span> <span class="st">&quot;ifany&quot;</span>)</code></pre></div>
-<pre><code>## 
-##   No  Yes &lt;NA&gt; 
+<pre><code>##
+##   No  Yes &lt;NA&gt;
 ##    1    2    2</code></pre>
 <blockquote>
 <p>side note - read.table() has an option to specify field values as <code>NA</code> as soon as you import the data, but this is a BAAAAD idea because R automatically encodes blank fields as missing too, and thus you lose the ability to distinguish between user-missing and experimenter-missing</p>
@@ -310,27 +310,27 @@ dirty$birth.order &lt;-<span class="st"> </span><span class="kw">as.numeric</spa
 <h2 id="lets-use-this-large-dataset-as-an-example">let’s use this large dataset as an example</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">large &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">'data/large.csv'</span>)
 <span class="kw">summary</span>(large)</code></pre></div>
-<pre><code>##        a                   b               c             
-##  Min.   :-33.98426   Min.   :-13.4   Min.   :-249998.64  
-##  1st Qu.: -6.71903   1st Qu.:128.6   1st Qu.:-141005.65  
-##  Median :  0.41681   Median :256.9   Median : -63498.56  
-##  Mean   :  0.00176   Mean   :252.2   Mean   : -83954.09  
-##  3rd Qu.:  7.00630   3rd Qu.:377.5   3rd Qu.: -15748.98  
-##  Max.   : 35.33306   Max.   :513.3   Max.   :     11.77  
+<pre><code>##        a                   b               c
+##  Min.   :-33.98426   Min.   :-13.4   Min.   :-249998.64
+##  1st Qu.: -6.71903   1st Qu.:128.6   1st Qu.:-141005.65
+##  Median :  0.41681   Median :256.9   Median : -63498.56
+##  Mean   :  0.00176   Mean   :252.2   Mean   : -83954.09
+##  3rd Qu.:  7.00630   3rd Qu.:377.5   3rd Qu.: -15748.98
+##  Max.   : 35.33306   Max.   :513.3   Max.   :     11.77
 ##  NA's   :45          NA's   :45      NA's   :45</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(<span class="kw">na.omit</span>(large))</code></pre></div>
 <pre><code>## [1] 871</code></pre>
 <h2 id="for-it-to-work-you-need-low-missingness-and-large-n">for it to work you need low missingness and large N</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">amelia</span>(large,<span class="dt">m =</span> <span class="dv">1</span>)</code></pre></div>
 <pre><code>## -- Imputation 1 --
-## 
+##
 ##   1  2  3</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(a)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ## Amelia output with 1 imputed datasets.
-## Return code:  1 
-## Message:  Normal EM convergence. 
-## 
+## Return code:  1
+## Message:  Normal EM convergence.
+##
 ## Chain Lengths:
 ## --------------
 ## Imputation 1:  3</code></pre>
@@ -338,12 +338,12 @@ dirty$birth.order &lt;-<span class="st"> </span><span class="kw">as.numeric</spa
 <p>we only did one, so here it is</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">large.imputed &lt;-<span class="st"> </span>a[[<span class="dv">1</span>]][[<span class="dv">1</span>]]
 <span class="kw">summary</span>(large.imputed)</code></pre></div>
-<pre><code>##        a                   b               c          
-##  Min.   :-33.98426   Min.   :-13.4   Min.   :-249999  
-##  1st Qu.: -6.73649   1st Qu.:126.5   1st Qu.:-140641  
-##  Median :  0.30970   Median :252.0   Median : -63513  
-##  Mean   : -0.01213   Mean   :250.0   Mean   : -83156  
-##  3rd Qu.:  6.99412   3rd Qu.:373.9   3rd Qu.: -15561  
+<pre><code>##        a                   b               c
+##  Min.   :-33.98426   Min.   :-13.4   Min.   :-249999
+##  1st Qu.: -6.73649   1st Qu.:126.5   1st Qu.:-140641
+##  Median :  0.30970   Median :252.0   Median : -63513
+##  Mean   : -0.01213   Mean   :250.0   Mean   : -83156
+##  3rd Qu.:  6.99412   3rd Qu.:373.9   3rd Qu.: -15561
 ##  Max.   : 35.33306   Max.   :518.7   Max.   :  69498</code></pre>
 <h2 id="if-you-give-it-a-tiny-dataset-it-will-fuss-at-you">if you give it a tiny dataset, it will fuss at you</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">amelia</span>(large[<span class="dv">990</span>:<span class="dv">1000</span>,],<span class="dt">m =</span> <span class="dv">1</span>)</code></pre></div>
@@ -352,14 +352,14 @@ dirty$birth.order &lt;-<span class="st"> </span><span class="kw">as.numeric</spa
 ## variables in the imputation model. Consider removing some variables, or
 ## reducing the order of time polynomials to reduce the number of parameters.</code></pre>
 <pre><code>## -- Imputation 1 --
-## 
+##
 ##   1  2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(a)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ## Amelia output with 1 imputed datasets.
-## Return code:  1 
-## Message:  Normal EM convergence. 
-## 
+## Return code:  1
+## Message:  Normal EM convergence.
+##
 ## Chain Lengths:
 ## --------------
 ## Imputation 1:  2</code></pre>
@@ -404,10 +404,10 @@ dirty$birth.order &lt;-<span class="st"> </span><span class="kw">as.numeric</spa
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.data$numeric ==<span class="st"> </span><span class="dv">2</span></code></pre></div>
 <pre><code>## logical(0)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.data[my.data$numeric ==<span class="st"> </span><span class="dv">2</span>,]</code></pre></div>
-<pre><code>## [1] n                                        
-## [2] c                                        
-## [3] b                                        
-## [4] d                                        
+<pre><code>## [1] n
+## [2] c
+## [3] b
+## [4] d
 ## [5] really.long.and.complicated.variable.name
 ## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <h2 id="boolean-variables-can-act-as-filters-right-out-of-the-box">boolean variables can act as filters right out of the box</h2>
@@ -423,19 +423,19 @@ dirty$birth.order &lt;-<span class="st"> </span><span class="kw">as.numeric</spa
 <h2 id="you-can-also-match-elements-from-a-vector">you can also match elements from a vector</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">good.things &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;three&quot;</span>, <span class="st">&quot;four&quot;</span>, <span class="st">&quot;five&quot;</span>)
 my.data[my.data$character %in%<span class="st"> </span>good.things, ]</code></pre></div>
-<pre><code>## [1] n                                        
-## [2] c                                        
-## [3] b                                        
-## [4] d                                        
+<pre><code>## [1] n
+## [2] c
+## [3] b
+## [4] d
 ## [5] really.long.and.complicated.variable.name
 ## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <h2 id="most-subsetting-operations-on-dataframes-also-return-a-dataframe">most subsetting operations on dataframes also return a dataframe</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(my.data[!(my.data$character %in%<span class="st"> </span>good.things), ])</code></pre></div>
 <pre><code>## 'data.frame':    0 obs. of  5 variables:
-##  $ n                                        : num 
-##  $ c                                        : Factor w/ 3 levels &quot;one&quot;,&quot;three&quot;,..: 
-##  $ b                                        : logi 
-##  $ d                                        :Class 'Date'  num(0) 
+##  $ n                                        : num
+##  $ c                                        : Factor w/ 3 levels &quot;one&quot;,&quot;three&quot;,..:
+##  $ b                                        : logi
+##  $ d                                        :Class 'Date'  num(0)
 ##  $ really.long.and.complicated.variable.name: num</code></pre>
 <h2 id="subsets-that-are-a-single-column-return-a-vector">subsets that are a single column return a vector</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(my.data$numeric)</code></pre></div>
@@ -484,16 +484,16 @@ normal$time &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(nor
 <p>side note - don’t worry about how this works yet - we’ll talk about it tomorrow</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(score ~<span class="st"> </span>time, <span class="dt">data=</span>normal)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ##  Welch Two Sample t-test
-## 
+##
 ## data:  score by time
 ## t = 0.58132, df = 2.0278, p-value = 0.6191
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
 ##  -73.56101  96.89434
 ## sample estimates:
-## mean in group 1 mean in group 2 
+## mean in group 1 mean in group 2
 ##       110.00000        98.33333</code></pre>
 <p>it’s easy to combine tidy tables to compare different levels of information simultaneously</p>
 </div>
@@ -608,7 +608,7 @@ data<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">re
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(normal, time)</code></pre></div>
 <pre><code>## Source: local data frame [6 x 4]
 ## Groups: time [2]
-## 
+##
 ##     name  time score    id
 ##   (fctr) (dbl) (dbl) (int)
 ## 1  Alice     1    90     1
@@ -619,7 +619,7 @@ data<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">re
 ## 6    Eve     2   100     6</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(<span class="kw">group_by</span>(normal, time), <span class="kw">mean</span>(score))</code></pre></div>
 <pre><code>## Source: local data frame [2 x 2]
-## 
+##
 ##    time mean(score)
 ##   (dbl)       (dbl)
 ## 1     1   110.00000
@@ -627,7 +627,7 @@ data<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">re
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mutate</span>(<span class="kw">group_by</span>(normal, time), <span class="dt">diff=</span>score-<span class="kw">mean</span>(score))</code></pre></div>
 <pre><code>## Source: local data frame [6 x 5]
 ## Groups: time [2]
-## 
+##
 ##     name  time score    id       diff
 ##   (fctr) (dbl) (dbl) (int)      (dbl)
 ## 1  Alice     1    90     1 -20.000000
@@ -638,7 +638,7 @@ data<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">re
 ## 6    Eve     2   100     6   1.666667</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ungroup</span>(<span class="kw">mutate</span>(<span class="kw">group_by</span>(normal, time), <span class="dt">diff=</span>score-<span class="kw">mean</span>(score)))</code></pre></div>
 <pre><code>## Source: local data frame [6 x 5]
-## 
+##
 ##     name  time score    id       diff
 ##   (fctr) (dbl) (dbl) (int)      (dbl)
 ## 1  Alice     1    90     1 -20.000000

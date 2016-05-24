@@ -19,7 +19,7 @@ The instructor of this workshop series will lead you through the activities for 
 
 ## If you are a D-Lab instructor
 
-You'll see accumulated teaching notes and examples for each day's topics in the instructor folder. For your convenience, these are available as .Rmd, commented .R files, PDF documents, and HTML slides.
+You'll see accumulated teaching notes and examples for each day's topics in the instructor folder. For your convenience, these are available as .Rmd, commented .R files, PDF documents, and HTML slides. The meta-document for this workshop series, which explains the logic behind the structure and topics, can be viewed [at the D-Lab guides repository](https://github.com/dlab-berkeley/guides/blob/master/r.pdf)
 
 For information on contributing to this repository, see `CONTRIBUTING.md`
 
@@ -61,17 +61,17 @@ This workshop series covers:
 
 This workshop uses the following packages:
 
-1. Amelia
-2. devtools
-3. dplyr
-4. foreign
-5. ggplot2
-6. parallelMap
-7. RCurl
-8. reshape2
-9. roxygen2
-10. stringr
-11. XML
+* Amelia
+* devtools
+* dplyr
+* foreign
+* ggplot2
+* parallelMap
+* RCurl
+* roxygen2
+* stringr
+* tidyr
+* XML
 
 ---
 _D-Lab == Data Intensive Social Science, For All!_

@@ -55,7 +55,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="author">
 Dillon Niederhut<br />Shinhye Choi
   </p>
-  <p class="date">02 May, 2016</p>
+  <p class="date">24 May, 2016</p>
 </div>
 <div class="slide section level1">
 
@@ -83,7 +83,7 @@ for(i in <span class="dv">1</span>:<span class="dv">6</span>){   <span class="co
 }                <span class="co"># or</span>
 
 mat &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">6</span>))
-for(i in <span class="dv">5</span>:<span class="dv">10</span>){   
+for(i in <span class="dv">5</span>:<span class="dv">10</span>){
   mat[i<span class="dv">-4</span>] &lt;-<span class="st"> </span><span class="dv">2</span>^i
 }                <span class="co"># by setting sequence and statement accordingly</span></code></pre></div>
 <p>You can also loop over a non-numeric vector</p>
@@ -93,11 +93,11 @@ city.temp &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span
 
 for(city in <span class="kw">c</span>(<span class="st">&quot;Berkeley&quot;</span>, <span class="st">&quot;Walnut Creek&quot;</span>, <span class="st">&quot;Richmond&quot;</span>)){
   if(<span class="kw">sum</span>(city==city.temp$a)&gt;<span class="dv">0</span>){
-    <span class="kw">print</span>(city.temp[<span class="kw">which</span>(city==city.temp$a),])   
+    <span class="kw">print</span>(city.temp[<span class="kw">which</span>(city==city.temp$a),])
     <span class="co"># if we have the city in our data, then print it's temperature and the name of the city</span>
   }
   if(<span class="kw">sum</span>(city==city.temp$a)==<span class="dv">0</span>){
-    <span class="kw">print</span>(<span class="kw">paste</span>(city, <span class="st">&quot;is NOT in the data. :(&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))          
+    <span class="kw">print</span>(<span class="kw">paste</span>(city, <span class="st">&quot;is NOT in the data. :(&quot;</span>, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>))
     <span class="co"># if not, then just print the name of the city next to &quot;is Not in the data. :(&quot;</span>
   }
 }   <span class="co"># Loops can be as complicated and long as they could be. Often not so efficient.</span></code></pre></div>
@@ -114,7 +114,7 @@ for(city in <span class="kw">c</span>(<span class="st">&quot;Berkeley&quot;</spa
 <span class="kw">system.time</span>(
   for(i in <span class="dv">1</span>:<span class="dv">1000</span>){
     <span class="kw">print</span>(i)
-  if(i ==<span class="st"> </span><span class="dv">50</span>) break  
+  if(i ==<span class="st"> </span><span class="dv">50</span>) break
   })</code></pre></div>
 <p>Next we move on to control structures, such as if statements. ``If&quot; statements are very useful when you want to assign different tasks to different subsets of data using a single for-loop. The basic syntax looks like the following: if(condition){statement} else{other statement}</p>
 <blockquote>
@@ -123,7 +123,7 @@ for(city in <span class="kw">c</span>(<span class="st">&quot;Berkeley&quot;</spa
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">7</span>
 if(x &gt;<span class="st"> </span><span class="dv">10</span>){
   <span class="kw">print</span>(x)
-  
+
   }else{                     <span class="co"># &quot;else&quot; should not start its own line. </span>
                              <span class="co"># Always let it be preceded by a closing brace on the same line.</span>
   <span class="kw">print</span>(<span class="st">&quot;NOT BIG ENOUGH!!&quot;</span>)
@@ -137,15 +137,15 @@ gender</code></pre></div>
 ##   [8] &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;male&quot;   &quot;female&quot;
 ##  [15] &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot;
 ##  [22] &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot;
-##  [29] &quot;female&quot; &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;male&quot;  
-##  [36] &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;male&quot;   &quot;male&quot;  
-##  [43] &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;male&quot;   &quot;male&quot;  
+##  [29] &quot;female&quot; &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;male&quot;
+##  [36] &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;male&quot;   &quot;male&quot;
+##  [43] &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;male&quot;   &quot;male&quot;
 ##  [50] &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;female&quot;
-##  [57] &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;male&quot;  
-##  [64] &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;male&quot;   &quot;male&quot;   &quot;male&quot;  
+##  [57] &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;male&quot;
+##  [64] &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;male&quot;   &quot;male&quot;   &quot;male&quot;
 ##  [71] &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;female&quot;
-##  [78] &quot;female&quot; &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;male&quot;  
-##  [85] &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;male&quot;  
+##  [78] &quot;female&quot; &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;male&quot;
+##  [85] &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;male&quot;
 ##  [92] &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot; &quot;female&quot; &quot;female&quot;
 ##  [99] &quot;female&quot; &quot;male&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gender &lt;-<span class="st"> </span><span class="kw">ifelse</span>(gender==<span class="st">&quot;male&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)
@@ -175,7 +175,7 @@ while(x &lt;<span class="st"> </span><span class="dv">5</span>) {x &lt;-<span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(f)</code></pre></div>
 <pre><code>## x + 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">environment</span>(f)</code></pre></div>
-<pre><code>## &lt;environment: 0x7f81d9374c60&gt;</code></pre>
+<pre><code>## &lt;environment: 0x7fe163bba308&gt;</code></pre>
 <h2 id="environments-are-where-the-function-was-defined">environments are where the function was defined</h2>
 <p>see how our function has <code>R_GlobalEnv</code> as it’s environment? that’s because we defined it in the global environment</p>
 <p>this means that if you tell a function to look for an <code>object</code>, it will look in the global namespace</p>
@@ -260,13 +260,13 @@ f &lt;-<span class="st"> </span>function(x) {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(heights, in_to_m)</code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1.7526
-## 
+##
 ## [[2]]
 ## [1] 1.3716
-## 
+##
 ## [[3]]
 ## [1] 1.8542
-## 
+##
 ## [[4]]
 ## [1] 2.0828</code></pre>
 <h2 id="its-not-always-smart-to-name-functions">it’s not always smart to name functions</h2>
@@ -274,13 +274,13 @@ f &lt;-<span class="st"> </span>function(x) {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(heights, <span class="dt">FUN =</span> function(x) x %/%<span class="st"> </span><span class="dv">12</span>)</code></pre></div>
 <pre><code>## [[1]]
 ## [1] 5
-## 
+##
 ## [[2]]
 ## [1] 4
-## 
+##
 ## [[3]]
 ## [1] 6
-## 
+##
 ## [[4]]
 ## [1] 6</code></pre>
 <h2 id="lapply-has-limits">lapply has limits</h2>
@@ -293,10 +293,10 @@ f &lt;-<span class="st"> </span>function(x) {
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(dat, mean)</code></pre></div>
 <pre><code>## $a
 ## [1] NA
-## 
+##
 ## $b
 ## [1] NA
-## 
+##
 ## $c
 ## [1] NA</code></pre>
 <p>we <em>know</em> there are numbers there - why are the means all missing?</p>
@@ -315,16 +315,16 @@ f &lt;-<span class="st"> </span>function(x) {
 <p>side note - previous versions of these materials imported the <code>parallel</code> library, which is no longer supported as of R versions &gt;= 3.2</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">'parallelMap'</span>)</code></pre></div>
-<pre><code>## 
+<pre><code>##
 ## The downloaded binary packages are in
-##  /var/folders/rj/8gpcssqd52z9yrqw7f8xxfym0000gn/T//Rtmp2xjYZ7/downloaded_packages</code></pre>
+ /var/folders/rj/8gpcssqd52z9yrqw7f8xxfym0000gn/T//RtmpmP1txl/downloaded_packages</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(parallelMap)
 <span class="kw">system.time</span>(<span class="kw">Map</span>(median, dat, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))</code></pre></div>
-<pre><code>##    user  system elapsed 
+<pre><code>##    user  system elapsed
 ##   0.000   0.000   0.001</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(<span class="kw">parallelMap</span>(median, dat, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))</code></pre></div>
-<pre><code>##    user  system elapsed 
-##   0.001   0.000   0.001</code></pre>
+<pre><code>##    user  system elapsed
+##       0       0       0</code></pre>
 <p>parallel processing incurs time costs from memory management and message passing that can make small jobs take longer in parallel than in serial</p>
 </div>
 <div id="packages" class="slide section level1">
@@ -372,7 +372,7 @@ LazyData: true</code></pre>
 <p>what if there are other packages that your package uses? like ggplot2? do</p>
 <pre><code>Imports: ggplot</code></pre>
 <p>and if you want list optional packages, you can do so like this:</p>
-<pre><code>Suggests: 
+<pre><code>Suggests:
   reshape2 (&gt;=1.4.1)
   plyr (&gt;=1.8.3)</code></pre>
 <blockquote>
@@ -396,19 +396,19 @@ in_to_m &lt;- function(x){
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(roxygen2)</code></pre></div>
 <p>now we’re going to add specialized comments to our length.R file</p>
 <pre><code>#' Converts inches to centimeters
-#' 
+#'
 #' @param x A numeric
 #' @return Converted numeric
-#' @examples 
+#' @examples
 #' in_to_cm(1)
 #' in_to_cm(c(1,2,3))
 in_to_cm &lt;- function(x) x * 2.54
 
 #' Converts inches to meters
-#' 
+#'
 #' @param x A numeric
 #' @return Converted numeric
-#' @examples 
+#' @examples
 #' in_to_m(1)
 #' in_to_m(c(1,2,3))
 in_to_m &lt;- function(x){
@@ -423,20 +423,20 @@ in_to_m &lt;- function(x){
 export(in_to_m)</code></pre>
 <p>or you can have roxygen2 handle it for you by adding <code>#' @export</code> in the function blocks you want to have exported</p>
 <pre><code>#' Converts inches to centimeters
-#' 
+#'
 #' @param x A numeric
 #' @return Converted numeric
-#' @examples 
+#' @examples
 #' in_to_cm(1)
 #' in_to_cm(c(1,2,3))
 #' @export
 in_to_cm &lt;- function(x) x * 2.54
 
 #' Converts inches to meters
-#' 
+#'
 #' @param x A numeric
 #' @return Converted numeric
-#' @examples 
+#' @examples
 #' in_to_m(1)
 #' in_to_m(c(1,2,3))
 #' @export
@@ -507,31 +507,31 @@ git push </code></pre>
 <pre><code>## [1] &quot;&lt;H3&gt;ACT I&lt;/h3&gt;&quot;   &quot;&lt;H3&gt;ACT II&lt;/h3&gt;&quot;  &quot;&lt;H3&gt;ACT III&lt;/h3&gt;&quot;
 ## [4] &quot;&lt;H3&gt;ACT IV&lt;/h3&gt;&quot;  &quot;&lt;H3&gt;ACT V&lt;/h3&gt;&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">RJ[<span class="kw">grep</span>(<span class="st">&quot;&lt;h3&gt;&quot;</span>, RJ, <span class="dt">perl=</span><span class="ot">TRUE</span>)]</code></pre></div>
-<pre><code>##  [1] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;                                                        
-##  [2] &quot;&lt;h3&gt;SCENE I. Verona. A public place.&lt;/h3&gt;&quot;                                
-##  [3] &quot;&lt;h3&gt;SCENE II. A street.&lt;/h3&gt;&quot;                                             
-##  [4] &quot;&lt;h3&gt;SCENE III. A room in Capulet's house.&lt;/h3&gt;&quot;                           
-##  [5] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;                                             
-##  [6] &quot;&lt;h3&gt;SCENE V. A hall in Capulet's house.&lt;/h3&gt;&quot;                             
-##  [7] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;                                                        
-##  [8] &quot;&lt;h3&gt;SCENE I. A lane by the wall of Capulet's orchard.&lt;/h3&gt;&quot;               
-##  [9] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;                                    
-## [10] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;                               
-## [11] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;                                             
-## [12] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;                                     
-## [13] &quot;&lt;h3&gt;SCENE VI. Friar Laurence's cell.&lt;/h3&gt;&quot;                                
-## [14] &quot;&lt;h3&gt;SCENE I. A public place.&lt;/h3&gt;&quot;                                        
-## [15] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;                                    
-## [16] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;                               
-## [17] &quot;&lt;h3&gt;SCENE IV. A room in Capulet's house.&lt;/h3&gt;&quot;                            
-## [18] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;                                     
-## [19] &quot;&lt;h3&gt;SCENE I. Friar Laurence's cell.&lt;/h3&gt;&quot;                                 
-## [20] &quot;&lt;h3&gt;SCENE II. Hall in Capulet's house.&lt;/h3&gt;&quot;                              
-## [21] &quot;&lt;h3&gt;SCENE III. Juliet's chamber.&lt;/h3&gt;&quot;                                    
-## [22] &quot;&lt;h3&gt;SCENE IV. Hall in Capulet's house.&lt;/h3&gt;&quot;                              
-## [23] &quot;&lt;h3&gt;SCENE V. Juliet's chamber.&lt;/h3&gt;&quot;                                      
-## [24] &quot;&lt;h3&gt;SCENE I. Mantua. A street.&lt;/h3&gt;&quot;                                      
-## [25] &quot;&lt;h3&gt;SCENE II. Friar Laurence's cell.&lt;/h3&gt;&quot;                                
+<pre><code>##  [1] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;
+##  [2] &quot;&lt;h3&gt;SCENE I. Verona. A public place.&lt;/h3&gt;&quot;
+##  [3] &quot;&lt;h3&gt;SCENE II. A street.&lt;/h3&gt;&quot;
+##  [4] &quot;&lt;h3&gt;SCENE III. A room in Capulet's house.&lt;/h3&gt;&quot;
+##  [5] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;
+##  [6] &quot;&lt;h3&gt;SCENE V. A hall in Capulet's house.&lt;/h3&gt;&quot;
+##  [7] &quot;&lt;h3&gt;PROLOGUE&lt;/h3&gt;&quot;
+##  [8] &quot;&lt;h3&gt;SCENE I. A lane by the wall of Capulet's orchard.&lt;/h3&gt;&quot;
+##  [9] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;
+## [10] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [11] &quot;&lt;h3&gt;SCENE IV. A street.&lt;/h3&gt;&quot;
+## [12] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;
+## [13] &quot;&lt;h3&gt;SCENE VI. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [14] &quot;&lt;h3&gt;SCENE I. A public place.&lt;/h3&gt;&quot;
+## [15] &quot;&lt;h3&gt;SCENE II. Capulet's orchard.&lt;/h3&gt;&quot;
+## [16] &quot;&lt;h3&gt;SCENE III. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [17] &quot;&lt;h3&gt;SCENE IV. A room in Capulet's house.&lt;/h3&gt;&quot;
+## [18] &quot;&lt;h3&gt;SCENE V. Capulet's orchard.&lt;/h3&gt;&quot;
+## [19] &quot;&lt;h3&gt;SCENE I. Friar Laurence's cell.&lt;/h3&gt;&quot;
+## [20] &quot;&lt;h3&gt;SCENE II. Hall in Capulet's house.&lt;/h3&gt;&quot;
+## [21] &quot;&lt;h3&gt;SCENE III. Juliet's chamber.&lt;/h3&gt;&quot;
+## [22] &quot;&lt;h3&gt;SCENE IV. Hall in Capulet's house.&lt;/h3&gt;&quot;
+## [23] &quot;&lt;h3&gt;SCENE V. Juliet's chamber.&lt;/h3&gt;&quot;
+## [24] &quot;&lt;h3&gt;SCENE I. Mantua. A street.&lt;/h3&gt;&quot;
+## [25] &quot;&lt;h3&gt;SCENE II. Friar Laurence's cell.&lt;/h3&gt;&quot;
 ## [26] &quot;&lt;h3&gt;SCENE III. A churchyard; in it a tomb belonging to the Capulets.&lt;/h3&gt;&quot;</code></pre>
 Now that we know that the first line of each act begins with the string ``
 <H3>
@@ -548,41 +548,41 @@ for(i in <span class="dv">1</span>:<span class="kw">length</span>(y)){
 }</code></pre></div>
 <p>How should we count the number of the words appear in each act? Create a wrapper function that counts the number of the words and returns the number.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">countR &lt;-<span class="st"> </span>function(z){
-  <span class="kw">return</span>(<span class="kw">c</span>(<span class="kw">length</span>(<span class="kw">grep</span>(<span class="st">&quot;Romeo&quot;</span>, z, <span class="dt">perl=</span>T)), <span class="kw">length</span>(<span class="kw">grep</span>(<span class="st">&quot;Juliet&quot;</span>, z, <span class="dt">perl=</span>T)))) 
+  <span class="kw">return</span>(<span class="kw">c</span>(<span class="kw">length</span>(<span class="kw">grep</span>(<span class="st">&quot;Romeo&quot;</span>, z, <span class="dt">perl=</span>T)), <span class="kw">length</span>(<span class="kw">grep</span>(<span class="st">&quot;Juliet&quot;</span>, z, <span class="dt">perl=</span>T))))
 }
 <span class="kw">lapply</span>(x, countR)</code></pre></div>
 <pre><code>## [[1]]
 ## [1] 8 4
-## 
+##
 ## [[2]]
 ## [1] 30  3
-## 
+##
 ## [[3]]
 ## [1] 54 13
-## 
+##
 ## [[4]]
 ## [1] 9 8
-## 
+##
 ## [[5]]
 ## [1] 20 19</code></pre>
 <p>Now count the lines in each scene</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># now count the lines in each scene</span>
 countL &lt;-<span class="st"> </span>function(z){
-  <span class="kw">return</span>(<span class="kw">length</span>(<span class="kw">grep</span>(<span class="st">&quot;&lt;/A&gt;&lt;br&gt;$&quot;</span>, z, <span class="dt">perl=</span>T))) 
+  <span class="kw">return</span>(<span class="kw">length</span>(<span class="kw">grep</span>(<span class="st">&quot;&lt;/A&gt;&lt;br&gt;$&quot;</span>, z, <span class="dt">perl=</span>T)))
 }
 <span class="kw">lapply</span>(x, countL)</code></pre></div>
 <pre><code>## [[1]]
 ## [1] 739
-## 
+##
 ## [[2]]
 ## [1] 685
-## 
+##
 ## [[3]]
 ## [1] 821
-## 
+##
 ## [[4]]
 ## [1] 407
-## 
+##
 ## [[5]]
 ## [1] 441</code></pre>
 </div>
