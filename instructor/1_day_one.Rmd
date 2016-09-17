@@ -16,13 +16,13 @@ knitr::opts_knit$set(root.dir = '../')
 You should start by having your class go to our github page at [github.com/dlab-berkeley/R-for-Data-Science](github.com/dlab-berkeley/R-for-Data-Science) to get the course materials either via:
 
 1. `git clone https://github.com/dlab-berkeley/R-for-Data-Science.git`; or
-2. clicking the 'download zip` button on the right hand side of the screen
+2. clicking the `download zip` button on the right hand side of the screen
 
 The students won't need these materials today, but they will for the rest of the workshop. While everything is downloading, you can go on to:
 
 ## Introduction to the class
 
-Tthese materials are meant to be guides for you, the instructor. Your students will retain more of this content if they type these commands themselves than if they read them off of the slidedeck. That being said, at any time, you can create a slide deck by changing `output:` to be `html_slides` instead of `pdf_document`.
+These materials are meant to be guides for you, the instructor. Your students will retain more of this content if they type these commands themselves than if they read them off of the slidedeck. That being said, at any time, you can create a slide deck by changing `output:` to be `html_slides` instead of `pdf_document`.
 
 **If you are a student and you are looking at this PDF**, be sure not to copy the code examples directly from the PDF. The typesetter uses character encoding that might not match the local settings on your computer, and the examples won't work. If you have fallen behind or can't see the screen very well, and want to copy the code examples, do so from the `.R` files in this directory.
 
