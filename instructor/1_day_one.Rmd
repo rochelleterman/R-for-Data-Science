@@ -64,9 +64,9 @@ yes, even the commands, just watch
 ls
 ```
 
-`ls`, like basketball, is a specific thing with a `name` and stuff inside it that makes it `ls` and not dillon niederhut. in this particular instance, we are looking at the function that tells you what `objects` are in your `environment`
+`ls`, like basketball, is a specific thing with a `name` and stuff inside it that makes it `ls` and not dillon niederhut. In this particular instance, we are looking at the function that tells you what `objects` are in your `environment`
 
-until we get to functional programming, your `environment` is just R plus whatever you put in R
+Until we get to functional programming, your `environment` is just R plus whatever you put in R.
 
 ## in R, you store objects with names with the `<-` operator
 
@@ -284,7 +284,7 @@ don't dislike the messenger
 
 you will likely only ever deal with five flavors of data in R, which are stored as 
 
-## three data types
+## Five data types
 
 ```{r}
 class(FALSE)
