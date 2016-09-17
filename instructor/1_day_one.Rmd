@@ -585,3 +585,35 @@ See [Dynamic documents in R Markdown](https://github.com/deniederhut/workshop_Rm
 ## Materials taken from:
 
 [Hadley Wickham](http://adv-r.had.co.nz/)
+
+## Challenges
+
+### Data Types and Coercion
+
+1. Why is 1 == "1" true? Why is -1 < FALSE true? Why is "one" < 2 false?
+
+### Vectors
+
+1. Create a vector of a sequence of numbers between 1 to 10.
+
+2. Coerce that vector into a character vector
+
+3. Add the element "11" to the end of the vector
+
+4. Evaluate the `str` of the vector.
+
+### Lists
+
+1. How does a list differ from an atomic vector?
+
+2. Create three vectors and then combine them into a list.
+
+3. If `x` is a list, what is the class of `x[1]`? How about `x[[1]]`?
+
+### Data Frames [NOTE: Must introduce attributes / names and reassignment for this challenge to work.]
+
+1. Create a 3x2 data frame called `basket`. The first column should contain the names of 3 fruits. The second column should contain the price of those fruits.
+
+2. Now give your dataframe appropriate column and row names. 
+
+3. Add a third column called color, that tells me what color each fruit is.
