@@ -536,7 +536,7 @@ luckily, there is a package that handles the common tasks for you
 library(dplyr)
 ```
 
-## sort data with `arranage`
+## sort data with `arrange`
 
 base R syntax for sorting is a bit of a pain in that you have to create a sorting vector based on the values in a column, then subset the same dataframe and apply the sorting vector to the rows slice
 
