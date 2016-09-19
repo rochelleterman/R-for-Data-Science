@@ -1,0 +1,868 @@
+---
+title: "R bootcamp"
+author: "Rochelle Terman"
+date: "September 19, 2016"
+output: html_document
+---
+# Review
+
+## Inspecting objects
+
+we'll start by using some data that is already in R
+
+```{r, eval=FALSE}
+data(state)
+str(state.x77)
+```
+
+## Inspecting variables
+
+We should see 50 levels in this division variable
+
+```{r}
+state.division
+length(state.division)
+levels(state.division)
+```
+
+## Inspecting data frames
+
+recall, a dataframe is a list of vectors, where each vector is one variable with all of its measurements
+
+R expects dataframes to be rectangular
+
+```{r}
+state <- state.x77
+rm(state.x77)
+state <- as.data.frame(state)
+head(state)
+```
+
+# Subsetting
+
+When working with data, you'll need to subset objects early and often. Luckily, R's subsetting operators are powerful and fast. Mastery of subsetting allows you to succinctly express complex operations in a way that few other languages can match. Subsetting is hard to learn because you need to master a number of interrelated concepts:
+
+* The three subsetting operators, `[`, `[[`, and `$`.
+
+* The four types of subsetting.
+
+* Important differences in behaviour for different objects (e.g., vectors, lists, factors, matrices, and data frames).
+
+* The use of subsetting in conjunction with assignment.
+
+This unit helps you master subsetting by starting with the simplest type of subsetting: subsetting an atomic vector with `[`. It then gradually extends your knowledge, first to more complicated data types (like dataframes and lists), and then to the other subsetting operators, `[[` and `$`. You'll then learn how subsetting and assignment can be combined to modify parts of an object, and, finally, you'll see a large number of useful applications.
+
+### Outline
+
+1. [Data types](#1-data-types) starts by teaching you about `[`. You'll start by learning the four ways to subset atomic vectors. You'll then learn how those four methods act when used to subset lists, matrices, and data frames.
+2. [Subsetting operators](#2-subsetting-operators) expands your knowledge of subsetting operators to include `[[` and `$`, focussing on the important principles of simplifying vs. preserving.
+3. In [Subsetting and assignment](#3-subassignment) you'll learn the art of subassignment, combining subsetting and assignment to modify parts  of an object.
+4. [Applications](#4-applications) leads you through important, but not obvious, applications of subsetting to solve problems that you often encounter in a data analysis, using the tools above.
+
+# 1. Data types
+
+It's easiest to learn how subsetting works for atomic vectors, and then how it generalises to higher dimensions and other more complicated objects. We'll start with `[`, the most commonly used operator. [Subsetting operators](#subsetting-operators) will cover `[[` and `$`, the two other main subsetting operators.
+
+### 1a. Atomic vectors
+
+Let's explore the different types of subsetting with a simple vector, `x`. 
+
+```{r}
+x <- c(2.1, 4.2, 3.3, 5.4)
+```
+
+Note that the number after the decimal point gives the original position in the vector.
+
+**NB:** In R, positions start at 1, unlike Python. Fun!**
+
+There are five things that you can use to subset a vector: 
+
+#### 1.   __Positive integers__ return elements at the specified positions:
+
+```{r}
+x <- c(2.1, 4.2, 3.3, 5.4)
+x
+x[1]
+x[c(3, 1)]
+
+# `order(x)` gives the positions of smallest to largest values.
+order(x)
+x[order(x)]
+x[c(1, 3, 2, 4)]
+
+# Duplicated indices yield duplicated values
+x[c(1, 1)]
+```
+
+#### 2.   __Negative integers__ omit elements at the specified positions:
+
+```{r}
+x <- c(2.1, 4.2, 3.3, 5.4)
+x[-1]
+x[-c(3, 1)]
+```
+
+You can't mix positive and negative integers in a single subset:
+
+```{r, error = TRUE}
+x <- c(2.1, 4.2, 3.3, 5.4)
+x[c(-1, 2)]
+```
+
+#### 3.   __Logical vectors__ select elements where the corresponding logical value is `TRUE`.
+
+```{r}
+x <- c(2.1, 4.2, 3.3, 5.4)
+
+x[c(TRUE, TRUE, FALSE, FALSE)]
+```
+
+This is probably the most useful type of subsetting because you write the expression that creates the logical vector
+
+```{r}
+x <- c(2.1, 4.2, 3.3, 5.4)
+
+# this returns a logical vector
+x > 3
+x
+
+# use a conditional statement to create an implicit logical vector
+x[x > 3]
+```
+
+You can combine conditional statements with `&` (and), `|` (or), and `!` (not)
+
+```{r}
+x <- c(2.1, 4.2, 3.3, 5.4)
+
+# combing two conditional statements with &
+x > 3 & x < 5
+
+
+x[x > 3 & x < 5]
+
+# combing two conditional statements with |
+x < 3 | x > 5 
+x[x < 3 | x > 5]
+
+# combining conditional statements with !
+!x > 5 
+x[!x > 5]
+```
+
+Another way to generate implicit conditional statements is using the `%in%` operator, which works like the `in` keywords in Python
+
+```{r}
+# generate implicit logical vectors through the %in% operator
+x %in% c(3.3, 4.2)
+x
+x[x %in% c(3.3, 4.2)]
+```
+
+#### 4. __Character vectors__ to return elements with matching names. This only works if the vector is named.
+ 
+```{r}
+x <- c(2.1, 4.2, 3.3, 5.4)
+
+# apply names
+names(x) <- c("a", "b", "c", "d")
+x
+
+# subset using names
+x[c("d", "c", "a")]
+
+# Like integer indices, you can repeat indices
+x[c("a", "a", "a")]
+
+# Careful! names are always matched exactly
+x <- c(abc = 1, def = 2)
+x
+x[c("a", "d")]
+```
+
+#### Exercise
+
+Subset `country.vector` below to return every value EXCEPT "Canada" and "Brazil"
+
+```{r eval = FALSE}
+country.vector<-c("Afghanistan", "Canada", "Sierra Leone", "Denmark", "Japan", "Brazil")
+
+# Do it using positive integers
+
+country.vector[c(1, 3, 4, 5)]
+
+# Do it using negative integers
+
+country.vector[-c(2, 6)]
+
+# Do it using a logical vector
+
+country.vector[c(TRUE, FALSE, TRUE, TRUE, TRUE, FALSE )]
+
+# Do it using a conditional statement (and an implicit logical vector)
+
+country.vector[!country.vector %in% c("Canada", "Brazil")]
+
+```
+
+### 1b. Lists
+
+Subsetting a list works in the same way as subsetting an atomic vector. Using `[` will always return a list; `[[` and `$`, as described below, let you pull out the components of the list.
+
+```{r}
+l <- list('a' = 1, 'b' = 2)
+l
+  
+l[1]
+l[[1]]
+l['a']
+```
+
+### 1c. Matrices
+
+The most common way of subsetting matrices (2d) is a simple generalisation of 1d subsetting: you supply a 1d index for each dimension, separated by a comma. Blank subsetting is now useful because it lets you keep all rows or all columns.
+
+```{r}
+a <- matrix(1:9, nrow = 3)
+colnames(a) <- c("A", "B", "C")
+a
+
+# rows come first, then columns
+a[c(1, 2), ]
+a[c(T, F, T), c("B", "A")]
+a[0, -2]
+a[c(1,2) , -2]
+```
+
+### 1d. Data frames
+
+Data from data frames can be addressed like matrices, using two vectors separated by a columns.
+
+```{r}
+df <- data.frame(x = 4:6, y = 3:1, z = letters[1:3])
+df
+
+# return only the rows where x == 6
+df[df$x == 6, ]
+
+# return the first and third row
+df[c(1, 3), ]
+
+# return the first and third row, and the first and second column
+df[c(1, 3), c(1,2)]
+```
+
+Data frames possess the characteristics of both lists and matrices: if you subset with a single vector, they behave like lists, and return only the columns.
+
+```{r}
+# There are two ways to select columns from a data frame
+# Like a list:
+df[c("x", "z")]
+# Like a matrix
+df[, c("x", "z")]
+
+```
+But there's an important difference when you select a single column: matrix subsetting simplifies by default, list subsetting does not.
+
+```{r}
+(df["x"])
+class((df["x"]))
+
+(df[, "x"])
+class((df[, "x"]))
+```
+
+See the bottom section on [Simplying and Preserving to know more](#simplify-preserve)
+
+#### Exercises
+
+1.  Fix each of the following common data frame subsetting errors:
+
+```{r, eval = FALSE}
+# check out what we're dealing with
+mtcars
+
+# fix
+mtcars[mtcars$cyl = 4, ]
+mtcars[-1:4, ]
+mtcars[mtcars$cyl <= 5]
+mtcars[mtcars$cyl == 4 | 6, ]
+
+# answers
+mtcars[mtcars$cyl == 4, ]
+mtcars[-c(1:4), ]
+mtcars[mtcars$cyl <= 5,]
+mtcars[mtcars$cyl == 4 | mtcars$cyl == 6, ]
+```
+
+2.  Why does `mtcars[1:20]` return an error? How does it differ from the 
+similar `mtcars[1:20, ]`?
+
+# 2. Subsetting operators
+
+There are two other subsetting operators: `[[` and `$`. 
+
+* `[[` is similar to `[`, except it can only return a single value and it allows you to pull pieces out of a list. 
+* `$` is a useful shorthand for `[[` combined with character subsetting. 
+
+### 2a. `[[`
+
+You need `[[` when working with lists. This is because when `[` is applied to a list it always returns a list: it never gives you the contents of the list. To get the contents, you need `[[`:
+
+>  "If list `x` is a train carrying objects, then `x[[5]]` is
+> the object in car 5; `x[4:6]` is a train of cars 4-6." 
+>
+> --- @RLangTip
+
+Because data frames are lists of columns, you can use `[[` to extract a column from data frames:
+
+```{r}
+mtcars
+
+# these two are equivalent
+mtcars[[1]] 
+mtcars[ ,1]
+
+# which differs from this:
+mtcars[1]
+```
+
+### 2b. `$`
+
+`$` is a shorthand operator, where `x$y` is equivalent to `x[["y", exact = FALSE]]`.  It's often used to access variables in a data frame:
+
+```{r}
+# these two are equivalent
+mtcars[["cyl"]]
+mtcars$cyl
+```
+
+One common mistake with `$` is to try and use it when you have the name of a column stored in a variable:
+
+```{r}
+var <- "cyl"
+# Doesn't work - mtcars$var translated to mtcars[["var"]]
+mtcars$var
+
+# Instead use [[
+mtcars[[var]]
+```
+
+#### Exercises
+
+1.  Take a look at the linear model below: 
+
+```{r}
+mod <- lm(mpg ~ wt, data = mtcars)
+summary(mod)
+```
+
+Extract the R squared from the model summary.
+
+```{r}
+mod.sum <- summary(mod)
+mod.sum$r.squared
+```
+
+# 3. Subassignment
+
+All subsetting operators can be combined with assignment to modify selected values of the input vector.
+
+```{r, error = TRUE}
+x <- 1:5
+x
+x[c(1, 2)] <- 2:3
+x
+
+# The length of the LHS needs to match the RHS!
+x[-1] <- 4:1
+x
+
+x[1] <- 4:1
+
+# This is mostly useful when conditionally modifying vectors
+df <- data.frame(a = c(1, 10, NA))
+df
+df$a[df$a < 5] <- 0
+df
+```
+
+# 4. Applications
+
+The basic principles described above give rise to a wide variety of useful applications. Some of the most important are described below. Many of these basic techniques are wrapped up into more concise functions (e.g., `subset()`, `merge()`, `plyr::arrange()`), but it is useful to understand how they are implemented with basic subsetting. This will allow you to adapt to new situations that are not dealt with by existing functions.
+
+### 4a. Ordering Columns
+
+Consider we have this data frame:
+
+```{r}
+df <- data.frame(
+  Country = c("Iraq", "China", "Mexico", "Russia", "United Kingdom"),
+  Region = c("Middle East", "Asia", "North America", "Eastern Europe", "Western Europe"),
+  Language = c("Arabic", "Mandarin", "Spanish", "Russian", "English")
+)
+df
+```
+
+What if we wanted to reorder the columns so that `Region` is first? We can do so using subsetting with the names (or number) of the columns:
+
+```{r}
+df <- data.frame(
+  Country = c("Iraq", "China", "Mexico", "Russia", "United Kingdom"),
+  Region = c("Middle East", "Asia", "North America", "Eastern Europe", "Western Europe"),
+  Language = c("Arabic", "Mandarin", "Spanish", "Russian", "English")
+)
+
+# reorder columns using names
+names(df)
+df1 <- df[, c("Region", "Country", "Language")]
+df1
+
+# reorder columns using indices
+names(df)
+df1 <- df[, c(2,1,3)]
+df1
+```
+
+One helpul function is the `order` function, which takes a vector as input and returns an integer vector describing how the subsetted vector should be ordered:
+
+```{r}
+x <- c("b", "c", "a")
+order(x)
+x[order(x)]
+```
+
+Knowing this, we can use `order` to reorder our columns by alphabetical order.
+
+### 4b. Removing (or keeping) columns from data frames
+
+There are two ways to remove columns from a data frame. You can set individual columns to `NULL`: 
+
+```{r}
+df <- data.frame(
+  Country = c("Iraq", "China", "Mexico", "Russia", "United Kingdom"),
+  Region = c("Middle East", "Asia", "North America", "Eastern Europe", "Western Europe"),
+  Language = c("Arabic", "Mandarin", "Spanish", "Russian", "English")
+)
+
+df$Language <- NULL
+```
+
+Or you can subset to return only the columns you want:
+
+```{r}
+df <- data.frame(
+  Country = c("Iraq", "China", "Mexico", "Russia", "United Kingdom"),
+  Region = c("Middle East", "Asia", "North America", "Eastern Europe", "Western Europe"),
+  Language = c("Arabic", "Mandarin", "Spanish", "Russian", "English")
+)
+
+df1 <- df[, c("Country", "Region")]
+df1
+
+# using negative integers
+df2 <- df[, -3]
+df2
+```
+
+### 4c. Selecting rows based on a condition (logical subsetting)
+
+Because it allows you to easily combine conditions from multiple columns, logical subsetting is probably the most commonly used technique for extracting rows out of a data frame. 
+
+```{r}
+mtcars[mtcars$gear == 5, ]
+mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
+```
+
+------
+## Introduction
+
+Today's class will be essentially be split into two components: CRUD operations in R and TIDY data. For more on tidiness in data, see [Hadley Wickham's paper](www.jstatsoft.org/v59/i10/paper). We will also touch on missingness - for an accessible introduction, you can read [this very old and no longer state-of-the-art paper](http://psycnet.apa.org/journals/met/7/2/147/).
+
+yesterday we saw how to create dataframes in R
+
+```{r}
+my.data <- data.frame(n = c(1, 2, 3),
+                      c=c('one', 'two', 'three'),
+                      b=c(TRUE, TRUE, FALSE),
+                      d=c(as.Date("2015-07-27"),
+                          as.Date("2015-07-27")+7,
+                          as.Date("2015-07-27")-7),
+                      really.long.and.complicated.variable.name=999)
+```
+
+remember, you can learn about dataframes with
+
+```{r}
+str(my.data)
+```
+
+in practice, you will only rarely create dataframes by hand, because creating tables in a text editor is both boring and prone to error
+
+## Readibility
+
+we've broken up the previous command across multiple lines to make it easier to read
+this is a stylistic choice, and one that should be encouraged: however, it won't be obvious to most of the students that it is necessary to either highlight the whole command and run, or hit run for every line, starting from the first one, in order
+
+often, students will just run the second line, and be confused when nothing runs correctly in the console anymore - the way to get out of this is by hitting `ESC`
+
+# Reading dataframes from file
+
+## why read data from text files?
+
+they are human-readable and highly interoperable
+
+```{r}
+read.table("data/mydata.csv", sep=',', header = TRUE)
+```
+
+> side note - anyone who is 100% new to computing will have a hard time understanding the concept of a working directory, and will try to run this code from their home directory (spoiler alert - it doesn't work)
+
+## R has convenience wrappers for reading in tables
+
+```{r}
+read.csv("data/mydata.csv")
+```
+
+note that we are only reading the files by doing this
+
+## R lets you read in part of a table
+
+you'll sometimes find that you want to work with a smaller part of a dataset - maybe because the data is too large to fit into memory, or maybe because you want to test out some code on a small piece of the data so it runs faster
+
+```{r}
+read.csv("data/mydata.csv", nrows=2)
+```
+
+note that `nrows` is **not** equal to the number of lines in the file, because it does not include the file header
+
+## R also has its own kind of data file
+
+```{r}
+load("data/mydata.Rda")
+```
+
+the `load` function does actually put the file into memory, and with the name you originally gave it when you saved it
+
+this is typically a bad thing, and there is currently no easy workaround
+
+## to read in tables from excel, use the `xlsx` package
+
+if you are exporting data from excel, be sure to export datetimes as strings, as excel does not store dates internally the same way Unix does
+
+```{r, eval=FALSE}
+# WARNING! xlsx package install crashed current version of RStudio
+install.packages("xlsx")
+library(xlsx)
+read.xlsx("data/cpds_excel_new.xlsx")
+```
+But it may be better to save your .xlsx file as a csv. format in Excel first, and then read the csv file into R.
+
+## you can also use R to read in data from proprietary software
+
+```{r, eval=FALSE}
+# examples of these?
+install.packages("foreign")
+library(foreign)
+read.dta("data/cpds_stata.dta")
+read.spss()
+read.octave()
+```
+
+# Cleaning data
+
+there are two major steps to data cleaning, which we will call 'sanitizing' and 'tidying'
+
+in sanitizing, our goal is to take each variable and force its values to be honest representations of its levels
+
+in tidying, we are arranging our data structurally such that each row contains exactly one observation, and each column contains exactly one kind of data about that observation (this is sometimes expressed in SQL terms as "An attribute must tell something about the key, the whole key, and nothing but the key, so help me Codd")
+
+## exporting data from other software can do weird things to numbers and factors
+
+```{r}
+dirty <- read.csv('data/dirty.csv')
+str(dirty)
+```
+
+## it's usually better to DISABLE R's intuition about data types
+
+unless you already know the data is clean and has no non-factor strings in it (i.e. you are the one who created it)
+
+```{r}
+dirty <- read.csv('data/dirty.csv',stringsAsFactors = FALSE)
+str(dirty)
+```
+
+## let's start by removing the empty rows and columns
+
+```{r}
+tail(dirty)
+dirty <- dirty[1:5,-6]
+dim(dirty)
+```
+
+## you can replace variable names
+
+and you should, if they are uninformative or long
+
+```{r}
+names(dirty)
+names(dirty) <- c("time", "height", "dept", "enroll", "birth.order")
+```
+
+## it's common for hand-coded data to have a signifier for subject-missingness
+
+(to help differentiate it from your hand-coder forgetting to do something)
+
+```{r}
+dirty$enroll
+```
+
+## you should replace all of these values in your dataframe with R's missingness signifier, `NA`
+
+```{r}
+table(dirty$enroll)
+dirty$enroll[dirty$enroll=="999"] <- NA
+table(dirty$enroll, useNA = "ifany")
+```
+
+> side note - read.table() has an option to specify field values as `NA` as soon as you import the data, but this is a BAAAAD idea because R automatically encodes blank fields as missing too, and thus you lose the ability to distinguish between user-missing and experimenter-missing
+
+## the height variable is in four different units
+
+we can fix this with a somewhat complicated loop (since R started as a functional language, there are not easy ways to conditionally modify structures in place)
+
+OR
+
+we can do the same task line-by-line, since the number of observations is small
+
+```{r}
+class(dirty$height)
+as.numeric(dirty$height)
+```
+
+because there are apostrophes and quotation marks, R thinks these are strings
+
+```{r}
+dirty$height[grep("’", dirty$height, perl=TRUE)] <- 5*30.48 + 9*2.54
+dirty$height[2] <- 70*2.54
+dirty$height[3] <- 2.1*100
+```
+
+## let's fix some of those department spellings
+
+first, let's make this all lowercase
+
+```{r}
+dirty$dept
+dirty$dept <- tolower(dirty$dept)
+dirty$dept <- gsub(' ', '', dirty$dept)  # what did we just do?
+dirty$dept[4] <- "geology"
+dirty[dirty == "999"] <- NA
+```
+
+## then, you can coerce the data into the types they should be
+
+```{r}
+dirty$time <- as.Date(dirty$time,'%m/%d/%Y')
+dirty$height <- as.numeric(dirty$height)
+dirty$dept <- as.factor(dirty$dept)
+dirty$enroll <- as.factor(dirty$enroll)
+dirty$birth.order <- as.numeric(dirty$birth.order)
+str(dirty)
+```
+-----
+
+-------
+# Merging data frames
+
+## flexibly join dataframes with `merge`
+
+imagine you have two datasets that you want to merge
+
+```{r}
+data.1 <- read.csv('data/merge_practice_1.csv')
+data.2 <- read.csv('data/merge_practice_2.csv')
+str(data.1)
+str(data.2)
+```
+
+sometimes the same people have differet jobs in different locations
+
+you can do an *inner* join using merge
+
+```{r}
+merge(data.1, data.2, by = 'id')
+```
+
+that's no good - we lost half of our people!
+
+inner joins are mostly used when you **only** want records that appear in both tables
+
+if you want the union, you can use an outer join
+
+```{r}
+merge(data.1, data.2, by = 'id', all = TRUE)
+```
+
+this works basically the same as `join` in SQL
+
+running merges is particularly useful when:
+
+a. your data is tidy; and,
+b. you want to add information with a lookup table
+
+in this case, you can store your lookup table as a dataframe, then merge it
+
+```{r}
+lookup <- read.csv('data/merge_practice_3.csv')
+str(lookup)
+```
+
+this lookup table gives us the population for each location
+
+we can add this to our people table with
+
+```{r}
+merge(data.1, lookup, by = "location")
+```
+
+note that Reno was in our lookup table
+
+```{r}
+lookup[lookup$location == 'Reno', ]
+```
+
+but doesn't show up when we merge - why do you think this is?
+
+-----
+# Tidying/ Reshaping: R packages
+
+(plus a wrapper around the base string functions)
+
+```{r, eval=FALSE}
+install.packages('tidyr')
+install.packages('stringr')
+install.packages('dplyr')
+```
+
+```{r}
+library(tidyr)
+library(stringr)
+library(dplyr)
+```
+
+# reshaping
+
+our goal here is to arrange our data such that each table is about one kind of thing: whether it is everything about a measurement, everything about a person, or everything about a group of people
+
+```{r}
+abnormal <- data.frame(name = c('Alice','Bob','Eve'),
+                       time1 = c(90,90,150),
+                       time2 = c(100,95,100))
+```
+
+this table is not tidy - why not?
+
+the table is about measurements, but each measurement does not have its own row, and each type of measurement value is represented by more than one column
+
+```{r}
+normal <- gather(abnormal, "time", "score", time1, time2)
+normal
+```
+
+we can gather the two columns with time data into a column representing just time, and another representing just scores
+
+now that each row is a unique observation, we can clean up the dataframe a bit
+
+```{r}
+normal$id <- seq(1:nrow(normal))
+normal$time <- str_replace(normal$time,'time','')
+normal$time <- as.numeric(normal$time)
+```
+
+now that we are in a tidy format, see how easy it is to subset
+
+```{r}
+normal[normal$time == 1,]
+normal[normal$name == 'Alice',]
+```
+
+and test
+
+> side note - don't worry about how this works yet - we'll talk about it tomorrow
+
+```{r}
+t.test(score ~ time, data=normal)
+```
+
+it's easy to combine tidy tables to compare different levels of information simultaneously
+
+-----
+
+# Transforming data
+
+## introduction
+
+because R started out as a functional language, it can be hard to modify data, especially in place
+
+in practice, if you want 100% control over how your frames are being modified, you'll be writing lots of `for` loops, which is messy
+
+luckily, there is a package that handles the common tasks for you
+
+```{r}
+library(dplyr)
+```
+
+## sort data with `arrange`
+
+base R syntax for sorting is a bit of a pain in that you have to create a sorting vector based on the values in a column, then subset the same dataframe and apply the sorting vector to the rows slice
+
+to demonstrate this, let's have another look at our 'normal' data frame
+
+```{r}
+normal
+arrange(normal, score)
+```
+
+## apply summary fucntions with `summarise`
+
+dplyr includes most of the base R summary statistics, along with:
+
+* `n()`
+* `n_distinct()`
+* `first()`
+* `last()`
+
+if we want to get the mean and sd for the scores, we can do
+
+```{r}
+summarise(normal, mean(score), sd(score))
+```
+
+## dplyr allows you to apply functions to groups
+
+so far, these have taken base R functions and made them faster (with C++ calls behind the scenes), easier to use, or both
+
+dplyr's real utility is in its grouped dataframes, which apply dplyr functions groupwise
+
+let's say that we want to know the rank at each time -- we can `groupby` time and then do some variable transformation
+
+```{r}
+group_by(normal, time)
+summarize(group_by(normal, time), mean(score))
+mutate(group_by(normal, time), diff=score-mean(score))
+ungroup(mutate(group_by(normal, time), diff=score-mean(score)))
+```
+
+you can add as many functions as you want inbetween, but wrapping function call around function call can be hard to read (and write!)
+
+## you can pipe functions with the `%>%` operator
+
+pipes take the output of one function and give it as an input to the next function, without deep nesting of functions nor saving all of the intermediate steps
+
+this makes code a lot easier to read, and to understand
+
+```{r}
+normal %>% group_by(time) %>% mutate(diff=score-mean(score)) %>% ungroup() -> super
+```
