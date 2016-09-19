@@ -1,0 +1,116 @@
+---
+title: "R for Data Science Notes"
+author: "Rochelle Terman"
+date: "September 17, 2016"
+output: html_document
+---
+
+# General Notes
+
+I would like to see a little more *structure* to the materials. Students need a mental map of the different concepts and how they relate. Instead of simply throwing a bunch of information, I would encourage a more tightly-organized narrative. For instance, one simple fix is add a table of contents, so that students have some idea of the progression of concepts (which I tried to do [here](https://github.com/rochelleterman/PS239T/blob/master/09_r-basics/02_Data-Structures.Rmd)).
+
+There are many times when the materials use a concept without actually explaining what that concept is (e.g. attributes, matrices, 2d subsetting, etc). This is frustrating for students and instructors alike. A more structured outline would help organize concepts in a way that avoids this problem.
+
+Personally, I would structure the materias like this:
+
+Day 1: 
+1. RStudio, objects, environment, packages, variable assignment
+1. Atomic Types (numeric, character, boolean)
+2. Data structures (creation, behavior) in this order: 
+  - vectors
+  - lists
+  - matrices
+  - data frames 
+3. Attributes (names, factors) 
+
+Day 2:
+1. Subsetting, including:
+  - The four types of subsetting (pos integer, negative integer, boolean, character)
+  - Subsetting on different data types (i.e 1d and 2d, simplying + preserving)
+  - The three subsetting operators, [, [[, and $.
+  - The use of subsetting in conjunction with assignment.
+2. Loading Data from Files
+3. Data cleaning practice
+4. Summary, table [time permitting, or move to Day 3]
+5. Merging [time permitting, or move to Day 3]
+
+Day 3:
+1. Dplyr
+2. TidyR
+3. Statistical test / Inference
+
+Day 4:
+1. Ggplot
+2. Programming in R - functions, loops, ifelse, etc.
+3. Apply family
+4. [Cut packages -- no one is going to make a package after an intro to R sequence!]
+
+Smaller notes:
+- avoid using words like "easy" or "simple" -- they alienate those who *don't* find these concepts/materials easy or simple. (See, e.g., line 55 on Day 1)
+- add learning objectives / outlines before each lesson
+- don't use commands or concepts before explaining what they are first
+
+More detailed notes below about each Day.
+
+# Day 1
+
+#### Introduction
+- Don't start off explaining object oriented programming. It's confusing to beginners and unnecessary at this stage. It's good to introduce concepts like objects and environments, but one need not approach it using the object-oriented / functional programming paradigm.
+- Line 89: Used the jargon "call"" before explaining what it means. Same with "function evaluator". Too technical for this stage.
+- The S3 stuff, again, is unnecessary for this stage. 
+- In general, this intro seems to be written for people coming to R from other programming languages. Unfortunately, most of our students are completely new to programming, making the tone of this introduction inappropriate at times. I like the general agenda (introducting environments, living in R, objects, names, etc) but the level is too high.
+
+#### Data Types
+- Line 287 on different data types: Don't introduce factors here. Keep it to atomic data types (e.g. numeric, boolean, character) for now, and then discuss data structures (vector, lists, dataframes, matrices) LATER. Factors are more akin to vectors than atomic types. Personally, I wouldn't introduce factors until much later -- around the discussion of dataframes -- and would go into *much* more detail. 
+- Line 315: don't introduce vectors or if/else statements before you explain them!
+- On vectors: explain that vectors are 1d and homogenous, and are thus referred to by their type (e.g., character vector, numeric vector). 
+- Line 434: Explain what the `c` function is. Explain how you can add elements to an end of a vector this way.
+- Line 465: Don't name-drop dataframes before you explain them!
+- Line 467: Subsetting: In my opinion, subsetting deserves its own entire lesson (Day 1 or 2). There are many ways to subset a vector (pos integers, neg integers, booleans, names, etc.) Further, subsetting becomes very complicated once we get to data frames. For that reason, I would advocate having an entire lesson on it, ala this: https://github.com/rochelleterman/PS239T/blob/master/09_r-basics/03_Subsetting.Rmd
+- Line 482: Don't introduce attributes before explaining what they are!
+- Personally, I wouldn't introduce dataframes before a discussion of matrices. Explain that matrices are homogenous like vectors. This would then lead nicely into data frames, which are hetergenous like lists.
+- Line 529: This one command just used several concepts that were left unexplained: Matrices; 2D subsetting; vector subsetting -- none of these were actually introduced in any meaningful way.
+- Line 535: You introduced the `$` operator without explaining what it is! This warrants a lot more detail. Explain that `df$var` is equivalent to `df[, "var"]` which is equivalent to `df[[var]]`. Due to these complexities, I advocate a separate unit on subsetting.
+- Line 554: Specify that this is called "recycling".
+
+# Day 2
+
+- Line 32: Did we ever discuss factor levels?
+- Line 50: What are CRUD operations?
+- Line 112: call this something else besides `mydata` so that students can more clearly differentiate between the different files / objects.
+- Why are we not saving these tables in objects? Students are going to get confused about why these tables are not accessible after printing them. Saving tables in variables is a clearer demonstration for how to import data.
+- Line 117: don't casually mention something is 'generall bad' without explaining why. I'm not clear myself why this is a bad thing?
+- Line 166: This is a mistake -- there are no empty rows / columns. The following subsetting operation does not change the DF in any way.
+- Line 170: This is the first time we're using a negative integer to subset, and we've never actually explained this functionality to students. Nor have we explained how to subset a 2d objects (with rows and columns.) This is why I suggest a separate unit on subsetting. It's very challenging for students to grasp if they're new to R.
+- Line 195: will be very difficult for students to grasp without a more robust discussion of subsetting and reassignment.
+- Line 214: I'm not a fan of this exercise. It uses concept not previously discussed (i.e. grep), and it's also just weird code: Why use grep and not the index of the row?
+- Lines 245-315: I advocate removing most of this. Discuss the basics of missingness (e.g. the `NA` data type, how to count the number of NAs), but Amelia is overkill.
+- Lines 329--400: Why on earth would you put subsetting here? It's very out of place, especially since many of these concepts were used previously without explanation. This needs to go way earlier.
+- 433: `gather` is not well explained.
+- 464: Personally, I think merging should go before tidying. Just me.
+- 529: Stop using phrases like 'in place' and 'functional language' -- they are meaningless to beginners.
+- 589: If it's really that hard, why use this example? I'm not a fan of this example, mostly because it uses a bunch of functions we haven't discussed previously: count, str_trim, factor, count, etc....
+- Good at this stage: unique(), nrow(), is.na(), which()
+
+# Day 3
+- All the stuff on summary stats should have been covered on day 2, before dplyr / reshape.
+- 19: This is a bad example because we should not assume students know regex. Review what we have covered, and nothing else.
+- 39: As a general comment: I think it's pretty weird to have d-lab feedback forms as example data for this course. As a student, I would be wary of giving honest feedback if I knew that what I wrote might be shared with a bunch of students later on... 
+- 53: Add a line (even if commented out) to install `psych` before using it. same with other packages
+- 70: Bad dplyr code. Better to use `tally()` than `summarize(n=n())`.
+- 76: I totally disagree with this. There is nothing wrong with using base plots for quick summary stats, and students should be aware of base plots regardless because their collaborators might use them. Also, I don't know who Edward Tufte is.
+- 76-91: This could use some work. For instance, the intro should *define* all of these terms (layers, geometries, aesthetics). IT should then discuss how they relate. Obviously I'm biased but I like the ways I / Chris Krogslund approached it [here](https://github.com/rochelleterman/r-graphics/blob/master/Tutorial.Rmd#2-ggplot2)).
+- 116: Explain the architecture of this function: like all of Hadley Wickham's packages,  the column names do not need quotes. But this is unlike other R functions, and thus warrants explanation.
+- 123: There is no explanation of ggplot here, e.g. the aes() function, the `+` operator, etc. Its not enough to show the command -- students need to understand *how* it works.
+- 144: I'm not a fan of the "for X use Y" formulation. The the focus should not be on which graphs are better for particular kinds of data, but how to do it in R. This is not a visualization workshop.
+- 172: We should discuss the difference between the `aes()` function in the `ggplot()` (i.e. default) call and the `geom_jitter()` layer.
+- 194: See above. Not a good explanation of the default vs. layer aesthetics.
+- 230: Throughout this entire section, the discussion wavers too much into stats as opposed to programming. We're not statisticians and it's outside our purview to discuss parametric v. non-parametric, anova vs lm, etc.
+- 256: Cut the s3 methods. What purpose does this have??
+- 266: Don't tell students what they should or should not use!
+- 309: none of this makes any sense to me. What do you mean 'by hand'? What do you mean by 'know what you're doing'?
+- 327: A much better way to do this is to explicitly discuss "fomulas" in R, and their specific operators (`*`, `+`, etc)
+- 341: Cut the residual plots. Confusing.
+- 369: What does "gasp" mean? As per comment above, I would suggest cutting the discussion of statistics and focus on what students need to know to do their tests in R.
+- In general: I would replace `lm` with `glm` in these materials, as this is the catch-call function for linear models.
+
